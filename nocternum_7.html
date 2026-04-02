@@ -1,0 +1,1435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>NOCTERNUM — Private Maison · Paris</title>
+<meta name="description" content="NOCTERNUM — A private fragrance maison. Not created for everyone. Designed in Paris · Inspired from Italy · Crafted in India · Aged in Royalty."/>
+<meta property="og:title" content="NOCTERNUM — Private Maison · Paris"/>
+<meta property="og:description" content="Not created for everyone."/>
+<meta name="robots" content="index, follow"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Cormorant:ital,wght@0,500;0,600;1,500;1,600&family=Jost:wght@100;200;300;400&display=swap" rel="stylesheet"/>
+<style>
+/* ═══════════════════════════════════════════
+   NOCTERNUM · THE ELEVATION · DESIGN SYSTEM
+═══════════════════════════════════════════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --void:#01020a;
+  --abyss:#03040b;
+  --obsidian:#05060e;
+  --deep:#08091a;
+  --chamber:#0c0e1e;
+  --panel:#101528;
+  --gold:#c5a35e;
+  --gold-hi:#dfc080;
+  --gold-lo:#8a6e3a;
+  --gold-ghost:rgba(197,163,94,.06);
+  --ivory:#f0ebe0;
+  --parchment:#e4ddd0;
+  --warm:#b8b0a0;
+  --stone:#7a7468;
+  --ash:#4a4840;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --display:'Cormorant',Georgia,serif;
+  --sans:'Jost','Helvetica Neue',sans-serif;
+  --lux:cubic-bezier(.25,.46,.45,.94);
+  --rise:cubic-bezier(.16,1,.3,1);
+}
+html{scroll-behavior:smooth;font-size:16px;}
+body{background:var(--void);color:var(--ivory);font-family:var(--serif);overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+
+/* ── grain ── */
+body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");opacity:.02;mix-blend-mode:overlay;}
+
+/* ── CURTAIN ── */
+#curtain{position:fixed;inset:0;z-index:10000;background:var(--void);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem;transition:opacity 1.4s var(--lux),visibility 1.4s;}
+#curtain.gone{opacity:0;visibility:hidden;pointer-events:none;}
+.c-mark{font-family:var(--display);font-weight:600;font-size:3rem;letter-spacing:.6em;color:var(--gold);text-transform:uppercase;opacity:0;animation:rise .8s .4s var(--rise) forwards;}
+.c-vline{width:.5px;height:70px;background:linear-gradient(to bottom,transparent,rgba(197,163,94,.4),transparent);opacity:0;animation:rise .6s .9s var(--lux) forwards;}
+.c-sub{font-family:var(--sans);font-weight:100;font-size:.4rem;letter-spacing:.95em;text-transform:uppercase;color:var(--ash);opacity:0;animation:rise .6s 1.1s var(--lux) forwards;}
+.c-bar{width:100px;height:.5px;background:rgba(255,255,255,.04);position:relative;overflow:hidden;opacity:0;animation:rise .5s 1.3s var(--lux) forwards;}
+.c-bar::after{content:'';position:absolute;left:-100%;top:0;height:100%;width:100%;background:linear-gradient(90deg,transparent,var(--gold-lo),transparent);animation:sweep 1.2s 1.5s var(--lux) infinite;}
+@keyframes sweep{0%{left:-100%}100%{left:100%}}
+@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── SCROLL REVEAL ── */
+.v{opacity:0;transform:translateY(24px);transition:opacity 1.1s var(--lux),transform 1.1s var(--lux);}
+.v.in{opacity:1;transform:translateY(0);}
+.v.slow{transition-duration:1.6s;}
+.d1{transition-delay:.1s;} .d2{transition-delay:.2s;} .d3{transition-delay:.32s;} .d4{transition-delay:.46s;} .d5{transition-delay:.62s;}
+
+/* ── TOPBAR ── */
+.topbar{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:center;justify-content:space-between;padding:.45rem 3rem;background:rgba(1,2,10,0);border-bottom:.5px solid rgba(197,163,94,0);transition:all .9s var(--lux);}
+.topbar.dim{background:rgba(1,2,10,.97);border-bottom-color:rgba(197,163,94,.07);backdrop-filter:blur(24px);}
+.tb-left{display:flex;align-items:center;gap:1.8rem;}
+.tb-item{display:flex;align-items:center;gap:.5rem;}
+.tb-role{font-family:var(--sans);font-weight:100;font-size:.4rem;letter-spacing:.5em;text-transform:uppercase;color:var(--ash);}
+.tb-name{font-family:var(--serif);font-size:.75rem;color:var(--stone);}
+.tb-tel{font-family:var(--sans);font-weight:200;font-size:.6rem;letter-spacing:.06em;color:var(--warm);text-decoration:none;transition:color .3s;}
+.tb-tel:hover{color:var(--gold);}
+.tb-sep{width:.5px;height:11px;background:rgba(255,255,255,.06);}
+.tb-heritage{position:absolute;left:50%;transform:translateX(-50%);font-family:var(--sans);font-weight:100;font-size:.38rem;letter-spacing:.5em;text-transform:uppercase;color:var(--ash);white-space:nowrap;}
+.tb-concierge{font-family:var(--sans);font-weight:100;font-size:.44rem;letter-spacing:.38em;text-transform:uppercase;color:var(--stone);text-decoration:none;border:.5px solid rgba(197,163,94,.12);padding:.3rem .9rem;transition:all .4s;}
+.tb-concierge:hover{border-color:rgba(197,163,94,.3);color:var(--gold);}
+
+/* ── NAV ── */
+nav{position:fixed;top:28px;left:0;right:0;z-index:400;display:flex;align-items:center;justify-content:space-between;padding:2rem 3rem;transition:all .8s var(--lux);}
+nav.scrolled{background:rgba(1,2,10,.98);padding:1.1rem 3rem;border-bottom:.5px solid rgba(197,163,94,.06);backdrop-filter:blur(28px);}
+.nav-logo{text-decoration:none;display:flex;flex-direction:column;align-items:center;gap:5px;}
+.nl-name{font-family:var(--display);font-weight:600;font-size:1.4rem;letter-spacing:.65em;color:var(--gold);text-transform:uppercase;line-height:1;}
+.nl-sub{font-family:var(--sans);font-weight:100;font-size:.36rem;letter-spacing:.8em;text-transform:uppercase;color:var(--ash);}
+.nav-menu{display:flex;gap:3rem;list-style:none;}
+.nav-menu a{font-family:var(--sans);font-weight:200;font-size:.56rem;letter-spacing:.4em;text-transform:uppercase;color:var(--stone);text-decoration:none;transition:color .5s;position:relative;}
+.nav-menu a::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:.5px;background:var(--gold-lo);transform:scaleX(0);transition:transform .6s var(--lux);transform-origin:left;}
+.nav-menu a:hover{color:var(--ivory);}
+.nav-menu a:hover::after{transform:scaleX(1);}
+.nav-right{display:flex;align-items:center;gap:1.2rem;}
+.nav-sel{background:none;border:.5px solid rgba(197,163,94,.18);cursor:pointer;font-family:var(--sans);font-weight:100;font-size:.52rem;letter-spacing:.42em;text-transform:uppercase;color:var(--stone);padding:.5rem 1.3rem;transition:all .4s;display:flex;align-items:center;gap:.55rem;}
+.nav-sel:hover{border-color:rgba(197,163,94,.35);color:var(--gold);}
+.sel-n{background:var(--gold);color:var(--void);width:14px;height:14px;border-radius:50%;font-size:.48rem;display:none;align-items:center;justify-content:center;font-weight:400;}
+.sel-n.show{display:flex;}
+
+/* ── ARRIVAL ── */
+.arrival{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.ar-bg{position:absolute;inset:0;background:radial-gradient(ellipse 50% 60% at 50% 42%,rgba(197,163,94,.025) 0%,transparent 68%),linear-gradient(180deg,#01020a 0%,#030510 55%,#050812 100%);}
+.ar-pulse{position:absolute;inset:0;background:radial-gradient(ellipse 25% 30% at 50% 50%,rgba(197,163,94,.018) 0%,transparent 70%);animation:arPulse 14s ease-in-out infinite;}
+@keyframes arPulse{0%,100%{opacity:.4;transform:scale(1)}50%{opacity:1;transform:scale(1.06)}}
+.ar-hl{position:absolute;left:-25%;top:15%;width:70%;height:70%;border:.5px solid rgba(197,163,94,.035);border-radius:0 50% 50% 0;pointer-events:none;}
+.ar-hr{position:absolute;right:-25%;top:15%;width:70%;height:70%;border:.5px solid rgba(197,163,94,.035);border-radius:50% 0 0 50%;pointer-events:none;}
+.ar-vl{position:absolute;left:5rem;top:0;bottom:0;width:.5px;background:linear-gradient(to bottom,transparent 6%,rgba(197,163,94,.12) 25%,rgba(197,163,94,.12) 75%,transparent 94%);}
+.ar-content{position:relative;z-index:2;text-align:center;max-width:780px;padding:15rem 3rem 12rem;}
+.ar-pre{font-family:var(--sans);font-weight:100;font-size:.42rem;letter-spacing:.9em;text-transform:uppercase;color:var(--ash);margin-bottom:5rem;opacity:0;animation:rise .9s 2.2s var(--rise) forwards;}
+.ar-title{font-family:var(--display);font-weight:600;font-size:clamp(4rem,9vw,9rem);line-height:.88;color:var(--ivory);letter-spacing:.07em;margin-bottom:4rem;opacity:0;animation:rise 1.1s 2.4s var(--rise) forwards;}
+.ar-title em{display:block;font-style:italic;color:transparent;-webkit-text-stroke:.5px rgba(197,163,94,.45);font-size:.5em;letter-spacing:.04em;margin-top:.15em;}
+.ar-vline{width:.5px;height:90px;background:linear-gradient(to bottom,transparent,rgba(197,163,94,.28),transparent);margin:0 auto 4rem;opacity:0;animation:rise .7s 2.8s var(--lux) forwards;}
+.ar-whisper{font-family:var(--serif);font-style:italic;font-weight:300;font-size:1.15rem;line-height:2.2;color:var(--stone);max-width:440px;margin:0 auto 5rem;opacity:0;animation:rise .9s 3s var(--rise) forwards;}
+.ar-enter{opacity:0;animation:rise .7s 3.4s var(--rise) forwards;}
+.btn-enter{display:inline-block;font-family:var(--sans);font-weight:200;font-size:.52rem;letter-spacing:.65em;text-transform:uppercase;padding:1.2rem 3.8rem;border:.5px solid rgba(197,163,94,.25);color:var(--gold);background:transparent;text-decoration:none;cursor:pointer;transition:all .7s var(--lux);}
+.btn-enter:hover{background:rgba(197,163,94,.05);border-color:rgba(197,163,94,.4);letter-spacing:.8em;}
+.ar-origin{position:absolute;bottom:4.5rem;left:0;right:0;text-align:center;z-index:2;font-family:var(--sans);font-weight:100;font-size:.4rem;letter-spacing:.6em;text-transform:uppercase;color:var(--ash);opacity:0;animation:rise .7s 3.8s var(--lux) forwards;}
+.ar-descend{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:.4rem;opacity:0;animation:rise .7s 4.2s var(--lux) forwards;}
+.desc-line{width:.5px;height:36px;background:linear-gradient(to bottom,rgba(197,163,94,.25),transparent);animation:descPulse 2.5s var(--lux) infinite;}
+@keyframes descPulse{0%,100%{opacity:.4;transform:scaleY(1)}50%{opacity:1;transform:scaleY(.75)}}
+
+/* ── MARQUEE ── */
+.mq{overflow:hidden;padding:.85rem 0;border-top:.5px solid rgba(197,163,94,.04);border-bottom:.5px solid rgba(197,163,94,.04);}
+.mq-inner{display:inline-flex;animation:mq 80s linear infinite;white-space:nowrap;}
+.mq-inner span{font-family:var(--sans);font-weight:100;font-size:.44rem;letter-spacing:.7em;text-transform:uppercase;color:var(--ash);padding:0 3.5rem;}
+.mq-inner .dot{color:rgba(197,163,94,.18);padding:0 .3rem;letter-spacing:0;font-size:.32rem;}
+@keyframes mq{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ── LEGEND ── */
+.legend{padding:16rem 0;position:relative;overflow:hidden;}
+.legend-bg{position:absolute;inset:0;background:linear-gradient(180deg,var(--void) 0%,var(--obsidian) 45%,var(--void) 100%);}
+.leg-ghost{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-family:var(--display);font-weight:600;font-size:26vw;color:rgba(255,255,255,.008);letter-spacing:.06em;pointer-events:none;white-space:nowrap;line-height:1;z-index:0;}
+.leg-inner{position:relative;z-index:1;max-width:700px;margin:0 auto;text-align:center;padding:0 3rem;}
+.leg-eyebrow{font-family:var(--sans);font-weight:100;font-size:.42rem;letter-spacing:.8em;text-transform:uppercase;color:var(--ash);margin-bottom:5.5rem;}
+.leg-manifesto{font-family:var(--display);font-weight:500;font-style:italic;font-size:clamp(1.9rem,4.2vw,3.5rem);line-height:1.4;color:var(--ivory);letter-spacing:.03em;margin-bottom:5rem;opacity:.92;}
+.leg-orn{display:flex;align-items:center;gap:2rem;justify-content:center;margin:5rem 0;}
+.leg-orn::before,.leg-orn::after{content:'';flex:1;max-width:70px;height:.5px;background:linear-gradient(to right,transparent,rgba(197,163,94,.15));}
+.leg-orn::after{background:linear-gradient(to left,transparent,rgba(197,163,94,.15));}
+.leg-orn-g{font-size:.55rem;color:var(--gold-lo);}
+.leg-body{font-family:var(--serif);font-weight:300;font-size:1.02rem;line-height:2.5;color:var(--stone);margin-bottom:2.8rem;}
+.leg-stamp{font-family:var(--sans);font-weight:100;font-size:.44rem;letter-spacing:.65em;text-transform:uppercase;color:var(--gold-lo);line-height:3.2;margin-top:5rem;}
+
+/* ── PROOF ── */
+.proof{display:flex;align-items:stretch;border-top:.5px solid rgba(197,163,94,.05);border-bottom:.5px solid rgba(197,163,94,.05);}
+.pf{flex:1;text-align:center;padding:5rem 2rem;border-right:.5px solid rgba(197,163,94,.05);}
+.pf:last-child{border-right:none;}
+.pf-val{font-family:var(--display);font-weight:500;font-size:2.4rem;letter-spacing:.06em;color:var(--ivory);margin-bottom:.5rem;}
+.pf-lbl{font-family:var(--sans);font-weight:100;font-size:.42rem;letter-spacing:.55em;text-transform:uppercase;color:var(--ash);}
+
+/* ── WARDROBE INTRO ── */
+.wardrobe{padding:16rem 0;position:relative;border-top:.5px solid rgba(197,163,94,.04);}
+.wd-inner{max-width:920px;margin:0 auto;text-align:center;padding:0 3rem;}
+.sec-pre{font-family:var(--sans);font-weight:100;font-size:.42rem;letter-spacing:.8em;text-transform:uppercase;color:var(--ash);margin-bottom:2.5rem;}
+.sec-title{font-family:var(--display);font-weight:600;font-size:clamp(2.4rem,5vw,5rem);letter-spacing:.06em;color:var(--ivory);margin-bottom:2.5rem;}
+.sec-sub{font-family:var(--serif);font-style:italic;font-weight:300;font-size:1.1rem;line-height:2.1;color:var(--stone);max-width:440px;margin:0 auto;}
+.wd-moments{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(197,163,94,.04);margin:10rem 0 0;}
+.wm{background:var(--void);padding:5rem 3rem;text-align:center;transition:background .7s var(--lux);cursor:default;}
+.wm:hover{background:var(--obsidian);}
+.wm-n{font-family:var(--display);font-weight:500;font-size:5rem;color:rgba(255,255,255,.03);line-height:1;margin-bottom:2rem;}
+.wm-moment{font-family:var(--sans);font-weight:100;font-size:.44rem;letter-spacing:.7em;text-transform:uppercase;color:var(--gold-lo);margin-bottom:1.2rem;}
+.wm-name{font-family:var(--display);font-weight:600;font-size:1.55rem;letter-spacing:.08em;color:var(--ivory);margin-bottom:.4rem;}
+.wm-type{font-family:var(--sans);font-weight:100;font-size:.44rem;letter-spacing:.5em;text-transform:uppercase;color:var(--ash);}
+
+/* ── IDENTITY PANELS ── */
+.identity{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;border-top:.5px solid rgba(197,163,94,.04);}
+.identity.flip{direction:rtl;}
+.identity.flip > *{direction:ltr;}
+.id-stage{position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:9rem 4rem;min-height:680px;}
+.id-stage-bg{position:absolute;inset:0;transition:transform 1.6s var(--lux);}
+.identity:hover .id-stage-bg{transform:scale(1.03);}
+.id-ghost{position:absolute;font-family:var(--display);font-weight:600;font-size:22rem;color:rgba(255,255,255,.012);letter-spacing:.05em;line-height:1;pointer-events:none;top:50%;left:50%;transform:translate(-50%,-50%);white-space:nowrap;}
+.id-bottle-wrap{position:relative;z-index:2;text-align:center;}
+.id-bottle{width:150px;height:290px;margin:0 auto 2.5rem;filter:drop-shadow(0 0 55px rgba(197,163,94,.1));animation:float 20s var(--lux) infinite;}
+.id-bottle-2{animation-delay:-7s;}
+.id-bottle-3{animation-delay:-13s;}
+@keyframes float{0%,100%{transform:translateY(0) rotate(-.25deg)}50%{transform:translateY(-11px) rotate(.25deg)}}
+.id-stage-lbl{font-family:var(--sans);font-weight:100;font-size:.4rem;letter-spacing:.7em;text-transform:uppercase;color:var(--gold-lo);}
+.id-batch{font-family:var(--sans);font-weight:100;font-size:.38rem;letter-spacing:.5em;text-transform:uppercase;color:var(--ash);margin-top:.3rem;}
+.id-info{display:flex;flex-direction:column;justify-content:center;padding:9rem 5.5rem;background:var(--void);}
+.id-idx{font-family:var(--sans);font-weight:100;font-size:.4rem;letter-spacing:.7em;text-transform:uppercase;color:var(--ash);margin-bottom:2.2rem;}
+.id-name{font-family:var(--display);font-weight:600;font-size:clamp(2.6rem,4vw,4.8rem);letter-spacing:.06em;color:var(--ivory);line-height:.92;margin-bottom:.5rem;}
+.id-type{font-family:var(--sans);font-weight:100;font-size:.46rem;letter-spacing:.58em;text-transform:uppercase;color:var(--gold-lo);margin-bottom:3.5rem;}
+.id-rule{width:20px;height:.5px;background:rgba(197,163,94,.18);margin-bottom:3.5rem;}
+.id-essence{font-family:var(--serif);font-style:italic;font-weight:300;font-size:1.1rem;line-height:2;color:var(--stone);margin-bottom:3.5rem;}
+.id-meta{display:grid;grid-template-columns:1fr 1fr;gap:.8rem 2.5rem;margin-bottom:3.5rem;}
+.im-k{font-family:var(--sans);font-weight:100;font-size:.42rem;letter-spacing:.42em;text-transform:uppercase;color:var(--ash);display:block;margin-bottom:.2rem;}
+.im-v{font-family:var(--serif);font-size:.88rem;color:var(--warm);}
+.id-notes-lbl{font-family:var(--sans);font-weight:100;font-size:.42rem;letter-spacing:.58em;text-transform:uppercase;color:var(--ash);margin-bottom:.9rem;}
+.id-pills{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:3.5rem;}
+.pill{font-family:var(--sans);font-weight:100;font-size:.44rem;letter-spacing:.25em;text-transform:uppercase;padding:.28rem .8rem;border:.5px solid rgba(255,255,255,.06);color:var(--ash);}
+.id-access-badge{display:inline-flex;align-items:center;gap:.6rem;font-family:var(--sans);font-weight:100;font-size:.44rem;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);border:.5px solid rgba(197,163,94,.15);padding:.4rem 1rem;margin-bottom:1.2rem;}
+.id-access-badge::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--gold);animation:blink 2s ease-in-out infinite;}
+@keyframes blink{0%,100%{opacity:.3}50%{opacity:1}}
+.id-scarcity{font-family:var(--sans);font-weight:100;font-size:.44rem;letter-spacing:.28em;text-transform:uppercase;color:var(--stone);margin-bottom:2.5rem;display:block;}
+.id-micro{display:flex;flex-direction:column;gap:.3rem;margin-bottom:3rem;}
+.id-micro span{font-family:var(--sans);font-weight:100;font-size:.42rem;letter-spacing:.3em;text-transform:uppercase;color:var(--ash);}
+.id-micro span::before{content:'◆ ';color:rgba(197,163,94,.18);font-size:.3rem;}
+.id-sizes{display:flex;gap:.45rem;margin-bottom:.5rem;}
+.sz{font-family:var(--sans);font-weight:200;font-size:.48rem;letter-spacing:.28em;padding:.38rem .82rem;border:.5px solid rgba(255,255,255,.07);color:var(--ash);background:transparent;cursor:pointer;transition:all .35s;text-transform:uppercase;}
+.sz.on,.sz:hover{border-color:var(--gold-lo);color:var(--gold);}
+.id-anchor{font-family:var(--sans);font-weight:100;font-size:.44rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ash);margin-bottom:2.2rem;}
+.id-anchor s{margin-right:.4rem;}
+.id-price{font-family:var(--display);font-weight:500;font-size:2.2rem;letter-spacing:.05em;color:var(--gold);margin-bottom:.25rem;}
+.id-price small{font-family:var(--sans);font-weight:100;font-size:.46rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ash);display:block;margin-top:3px;}
+.id-actions{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-top:2.2rem;}
+.btn-reserve{font-family:var(--sans);font-weight:200;font-size:.5rem;letter-spacing:.55em;text-transform:uppercase;padding:.9rem 2.4rem;border:.5px solid rgba(197,163,94,.22);color:var(--gold);background:transparent;cursor:pointer;transition:all .6s var(--lux);}
+.btn-reserve:hover,.btn-reserve.reserved{background:var(--gold);color:var(--void);border-color:var(--gold);}
+.btn-concierge{font-family:var(--sans);font-weight:100;font-size:.44rem;letter-spacing:.38em;text-transform:uppercase;padding:.75rem 1.4rem;border:.5px solid rgba(255,255,255,.06);color:var(--stone);background:transparent;cursor:pointer;transition:all .35s;text-decoration:none;display:inline-block;}
+.btn-concierge:hover{border-color:rgba(255,255,255,.14);color:var(--warm);}
+
+/* ── WAITING LIST (private access) ── */
+.id-waitlist{margin-top:1rem;}
+.waitlist-note{font-family:var(--sans);font-weight:100;font-size:.42rem;letter-spacing:.3em;text-transform:uppercase;color:var(--ash);display:flex;align-items:center;gap:.6rem;}
+.waitlist-note::before{content:'';width:4px;height:4px;border-radius:50%;background:rgba(197,163,94,.35);}
+
+/* ── RITUAL ── */
+.ritual{padding:16rem 0;border-top:.5px solid rgba(197,163,94,.04);}
+.rit-inner{max-width:1080px;margin:0 auto;padding:0 3rem;}
+.rit-chapters{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(197,163,94,.04);margin-top:9rem;}
+.rc{background:var(--void);padding:5.5rem 3rem;transition:background .7s var(--lux);}
+.rc:hover{background:var(--obsidian);}
+.rc-time{font-family:var(--sans);font-weight:100;font-size:.4rem;letter-spacing:.7em;text-transform:uppercase;color:var(--gold-lo);margin-bottom:1.5rem;}
+.rc-frag{font-family:var(--display);font-weight:500;font-size:1.65rem;letter-spacing:.06em;color:var(--ivory);margin-bottom:1rem;}
+.rc-desc{font-family:var(--serif);font-style:italic;font-size:.92rem;line-height:2;color:var(--ash);}
+.rit-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(197,163,94,.04);margin-top:1px;}
+.rs{background:var(--void);padding:4.5rem 2.8rem;transition:background .7s var(--lux);}
+.rs:hover{background:var(--obsidian);}
+.rs-n{font-family:var(--display);font-weight:500;font-size:4rem;color:rgba(255,255,255,.03);line-height:1;margin-bottom:2rem;}
+.rs-t{font-family:var(--sans);font-weight:200;font-size:.5rem;letter-spacing:.45em;text-transform:uppercase;color:var(--warm);margin-bottom:.9rem;}
+.rs-b{font-family:var(--serif);font-style:italic;font-size:.88rem;line-height:1.95;color:var(--ash);}
+
+/* ── HERITAGE ── */
+.heritage{padding:16rem 0;position:relative;border-top:.5px solid rgba(197,163,94,.04);overflow:hidden;}
+.heritage-bg{position:absolute;inset:0;background:linear-gradient(180deg,var(--void) 0%,var(--obsidian) 50%,var(--void) 100%);}
+.her-inner{position:relative;z-index:1;max-width:1120px;margin:0 auto;padding:0 3rem;}
+.her-grid{display:grid;grid-template-columns:1fr 1fr;gap:10rem;align-items:start;}
+.her-headline{font-family:var(--display);font-weight:600;font-size:clamp(2rem,4.5vw,4rem);line-height:1.05;color:var(--ivory);letter-spacing:.04em;margin-bottom:4rem;}
+.her-headline em{font-style:italic;color:var(--warm);opacity:.65;font-weight:500;}
+.her-stamp{font-family:var(--sans);font-weight:100;font-size:.46rem;letter-spacing:.6em;text-transform:uppercase;color:var(--gold-lo);line-height:3.2;margin-bottom:4rem;}
+.her-body{font-family:var(--serif);font-weight:300;font-size:.98rem;line-height:2.5;color:var(--stone);}
+.her-pillars{display:flex;flex-direction:column;gap:3.5rem;padding-top:1rem;}
+.hp{padding-left:2rem;border-left:.5px solid rgba(197,163,94,.09);transition:border-color .5s;}
+.hp:hover{border-left-color:rgba(197,163,94,.25);}
+.hp-loc{font-family:var(--sans);font-weight:100;font-size:.4rem;letter-spacing:.65em;text-transform:uppercase;color:var(--ash);margin-bottom:.5rem;}
+.hp-name{font-family:var(--display);font-weight:500;font-size:1.35rem;letter-spacing:.06em;color:var(--ivory);margin-bottom:.5rem;}
+.hp-desc{font-family:var(--serif);font-style:italic;font-size:.88rem;line-height:1.95;color:var(--ash);}
+
+/* ── FOUNDER MANIFESTO ── */
+.founder{padding:16rem 0;text-align:center;border-top:.5px solid rgba(197,163,94,.04);}
+.fnd-inner{max-width:620px;margin:0 auto;padding:0 3rem;}
+.fnd-pre{font-family:var(--sans);font-weight:100;font-size:.42rem;letter-spacing:.8em;text-transform:uppercase;color:var(--ash);margin-bottom:5.5rem;}
+.fnd-quote{font-family:var(--display);font-style:italic;font-weight:500;font-size:clamp(1.8rem,3.2vw,2.7rem);line-height:1.45;color:var(--ivory);opacity:.9;margin-bottom:4.5rem;letter-spacing:.03em;}
+.fnd-orn{display:flex;align-items:center;gap:2rem;justify-content:center;margin:4rem 0;}
+.fnd-orn::before,.fnd-orn::after{content:'';flex:1;max-width:60px;height:.5px;background:rgba(197,163,94,.1);}
+.fnd-orn-g{font-size:.55rem;color:var(--gold-lo);}
+.fnd-body{font-family:var(--serif);font-weight:300;font-size:.98rem;line-height:2.4;color:var(--stone);margin-bottom:5rem;}
+.fnd-sig{font-family:var(--display);font-style:italic;font-weight:500;font-size:2.1rem;letter-spacing:.06em;color:var(--warm);opacity:.6;}
+.fnd-role{font-family:var(--sans);font-weight:100;font-size:.4rem;letter-spacing:.7em;text-transform:uppercase;color:var(--ash);margin-top:.4rem;}
+
+/* ── COLLECTOR WHISPERS ── */
+.whispers{padding:12rem 0;border-top:.5px solid rgba(197,163,94,.04);}
+.whis-inner{max-width:1100px;margin:0 auto;padding:0 3rem;}
+.whis-header{text-align:center;margin-bottom:9rem;}
+.whis-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(197,163,94,.04);}
+.wc{background:var(--void);padding:4.5rem 3rem;transition:background .7s var(--lux);}
+.wc:hover{background:var(--obsidian);}
+.wc-mark{font-family:var(--serif);font-style:italic;font-size:2rem;color:var(--gold-lo);opacity:.25;margin-bottom:1.5rem;line-height:1;}
+.wc-quote{font-family:var(--serif);font-style:italic;font-size:.95rem;line-height:2.05;color:var(--stone);margin-bottom:2.8rem;}
+.wc-who{font-family:var(--sans);font-weight:100;font-size:.46rem;letter-spacing:.42em;text-transform:uppercase;color:var(--ash);}
+.wc-frag{font-family:var(--sans);font-weight:100;font-size:.4rem;letter-spacing:.4em;text-transform:uppercase;color:var(--gold-lo);margin-top:.35rem;}
+
+/* ── SELECTION SALON (CART) ── */
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:600;opacity:0;pointer-events:none;transition:opacity .7s;}
+.overlay.on{opacity:1;pointer-events:all;}
+.salon{position:fixed;top:0;right:0;bottom:0;width:460px;max-width:100vw;background:var(--deep);z-index:700;transform:translateX(100%);transition:transform .7s var(--lux);display:flex;flex-direction:column;border-left:.5px solid rgba(197,163,94,.07);}
+.salon.open{transform:translateX(0);}
+.salon-head{display:flex;align-items:flex-start;justify-content:space-between;padding:2.2rem 2.5rem;border-bottom:.5px solid rgba(197,163,94,.06);}
+.sh-title{font-family:var(--display);font-weight:600;font-size:1.3rem;letter-spacing:.16em;color:var(--ivory);}
+.sh-sub{font-family:var(--sans);font-weight:100;font-size:.38rem;letter-spacing:.65em;text-transform:uppercase;color:var(--ash);margin-top:4px;}
+.salon-x{background:none;border:none;color:var(--ash);cursor:pointer;font-size:.85rem;transition:color .25s;letter-spacing:.1em;}
+.salon-x:hover{color:var(--ivory);}
+.salon-body{flex:1;overflow-y:auto;padding:2.2rem 2.5rem;}
+.salon-empty{text-align:center;padding:6rem 0;font-family:var(--serif);font-style:italic;font-size:.95rem;color:var(--ash);line-height:2;}
+.si{display:flex;gap:1.2rem;padding:1.6rem 0;border-bottom:.5px solid rgba(255,255,255,.04);}
+.si-thumb{width:48px;height:68px;background:var(--panel);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.si-thumb svg{height:60px;}
+.si-info{flex:1;}
+.si-name{font-family:var(--display);font-weight:500;font-size:.98rem;letter-spacing:.08em;color:var(--ivory);margin-bottom:.15rem;}
+.si-meta{font-family:var(--sans);font-weight:100;font-size:.48rem;letter-spacing:.35em;text-transform:uppercase;color:var(--ash);margin-bottom:.6rem;}
+.si-qty{display:flex;align-items:center;gap:.6rem;}
+.qb{background:var(--chamber);border:none;color:var(--warm);width:20px;height:20px;cursor:pointer;font-size:.8rem;transition:background .25s;}
+.qb:hover{background:var(--gold);color:var(--void);}
+.qn{font-family:var(--sans);font-weight:200;font-size:.74rem;min-width:14px;text-align:center;color:var(--ivory);}
+.si-rm{background:none;border:none;font-family:var(--sans);font-weight:100;font-size:.46rem;letter-spacing:.38em;text-transform:uppercase;color:var(--ash);cursor:pointer;transition:color .2s;padding:0;margin-top:.45rem;display:block;}
+.si-rm:hover{color:var(--ivory);}
+.si-price{font-family:var(--display);font-weight:500;font-size:.98rem;color:var(--gold);align-self:flex-start;}
+.salon-foot{padding:1.8rem 2.5rem;border-top:.5px solid rgba(197,163,94,.06);}
+.sf-row{display:flex;justify-content:space-between;margin-bottom:.44rem;font-family:var(--sans);font-weight:100;font-size:.52rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ash);}
+.sf-row span:last-child{color:var(--ivory);font-family:var(--display);font-weight:500;font-size:.85rem;}
+.sf-total{display:flex;justify-content:space-between;margin:1.2rem 0;padding-top:.9rem;border-top:.5px solid rgba(197,163,94,.06);}
+.sf-t-lbl{font-family:var(--display);font-weight:600;font-size:1.05rem;letter-spacing:.08em;color:var(--ivory);}
+.sf-t-val{font-family:var(--display);font-weight:600;font-size:1.3rem;color:var(--gold);}
+.sf-promise{margin-bottom:1.5rem;}
+.sf-pi{font-family:var(--sans);font-weight:100;font-size:.42rem;letter-spacing:.3em;text-transform:uppercase;color:var(--ash);display:block;margin-bottom:.3rem;}
+.sf-pi::before{content:'✦ ';color:rgba(197,163,94,.2);font-size:.36rem;}
+.btn-proceed{width:100%;padding:1rem;background:transparent;border:.5px solid rgba(197,163,94,.22);color:var(--gold);font-family:var(--sans);font-weight:200;font-size:.5rem;letter-spacing:.6em;text-transform:uppercase;cursor:pointer;transition:all .6s var(--lux);}
+.btn-proceed:hover{background:var(--gold);color:var(--void);border-color:var(--gold);}
+
+/* ── CEREMONY MODAL ── */
+.ceremony-veil{position:fixed;inset:0;background:rgba(0,0,0,.96);z-index:800;display:none;align-items:flex-start;justify-content:center;padding:2rem 1rem;overflow-y:auto;}
+.ceremony-veil.on{display:flex;}
+.ceremony{background:var(--deep);width:100%;max-width:960px;margin:auto;border:.5px solid rgba(197,163,94,.07);}
+.cer-head{display:flex;align-items:flex-start;justify-content:space-between;padding:2.2rem 3rem;border-bottom:.5px solid rgba(197,163,94,.05);}
+.cer-brand{font-family:var(--display);font-weight:600;font-size:1.25rem;letter-spacing:.25em;color:var(--gold);}
+.cer-brand-sub{font-family:var(--sans);font-weight:100;font-size:.36rem;letter-spacing:.8em;text-transform:uppercase;color:var(--ash);margin-top:4px;}
+.cer-x{background:none;border:none;color:var(--ash);font-size:.85rem;cursor:pointer;transition:color .25s;}
+.cer-x:hover{color:var(--ivory);}
+.step-bar{display:flex;border-bottom:.5px solid rgba(255,255,255,.04);}
+.stab{flex:1;padding:.85rem;text-align:center;font-family:var(--sans);font-weight:100;font-size:.46rem;letter-spacing:.35em;text-transform:uppercase;color:var(--ash);border-bottom:.5px solid transparent;transition:all .45s;cursor:default;}
+.stab.on{color:var(--gold);border-bottom-color:rgba(197,163,94,.4);}
+.stab.done{color:var(--gold-lo);}
+.cer-layout{display:grid;grid-template-columns:1fr 290px;}
+.cer-form{border-right:.5px solid rgba(197,163,94,.04);}
+.step{display:none;padding:2.8rem 3rem;}
+.step.on{display:block;}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin-bottom:.9rem;}
+.frow.one{grid-template-columns:1fr;}
+.frow.tri{grid-template-columns:1fr 1fr 1fr;}
+.fg{display:flex;flex-direction:column;gap:.38rem;}
+.flbl{font-family:var(--sans);font-weight:100;font-size:.44rem;letter-spacing:.5em;text-transform:uppercase;color:var(--ash);}
+.finp{background:rgba(255,255,255,.018);border:.5px solid rgba(255,255,255,.06);color:var(--ivory);padding:.75rem 1rem;font-family:var(--serif);font-size:.9rem;outline:none;transition:border-color .35s;width:100%;}
+.finp:focus{border-color:rgba(197,163,94,.28);}
+.finp::placeholder{color:var(--ash);}
+select.finp option{background:var(--deep);}
+.pay-opts{display:flex;flex-direction:column;gap:.55rem;margin-bottom:1.5rem;}
+.popt{display:flex;align-items:center;gap:1rem;padding:.85rem 1.1rem;border:.5px solid rgba(255,255,255,.05);cursor:pointer;transition:all .35s;}
+.popt:hover{border-color:rgba(255,255,255,.1);}
+.popt.sel{border-color:rgba(197,163,94,.28);background:rgba(197,163,94,.025);}
+.popt input[type=radio]{accent-color:var(--gold);width:12px;height:12px;flex-shrink:0;}
+.pico{font-size:.92rem;width:18px;text-align:center;}
+.plbl{font-family:var(--sans);font-weight:300;font-size:.72rem;letter-spacing:.1em;color:var(--ivory);}
+.psub{font-family:var(--sans);font-weight:100;font-size:.54rem;color:var(--ash);margin-top:1px;}
+.pdet{display:none;margin-top:1rem;padding:1rem 1.1rem;background:rgba(0,0,0,.3);border-left:.5px solid rgba(197,163,94,.14);}
+.pdet.on{display:block;}
+.uapps{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:.9rem;}
+.ua{padding:.35rem .75rem;border:.5px solid rgba(255,255,255,.07);background:rgba(255,255,255,.02);color:var(--warm);font-family:var(--sans);font-weight:100;font-size:.52rem;letter-spacing:.18em;cursor:pointer;transition:all .25s;text-transform:uppercase;}
+.ua:hover,.ua.on{border-color:rgba(197,163,94,.28);color:var(--gold);}
+.cod-note{background:rgba(197,163,94,.03);border-left:.5px solid rgba(197,163,94,.18);padding:.9rem 1rem;font-family:var(--serif);font-style:italic;font-size:.86rem;color:var(--stone);line-height:1.8;}
+/* order summary panel */
+.cer-sum{padding:2.2rem 2rem;background:rgba(0,0,0,.22);}
+.cs-title{font-family:var(--sans);font-weight:100;font-size:.42rem;letter-spacing:.6em;text-transform:uppercase;color:var(--ash);margin-bottom:1.6rem;}
+.cs-items{margin-bottom:1rem;}
+.cs-item{display:flex;justify-content:space-between;margin-bottom:.5rem;}
+.cs-n{font-family:var(--sans);font-weight:100;font-size:.6rem;letter-spacing:.1em;color:var(--stone);}
+.cs-p{font-family:var(--sans);font-weight:200;font-size:.6rem;color:var(--gold);}
+.cs-div{border:none;border-top:.5px solid rgba(255,255,255,.04);margin:.8rem 0;}
+.promo-row{display:flex;gap:.4rem;margin-bottom:.65rem;}
+.promo-inp{flex:1;}
+.promo-btn{background:none;border:.5px solid rgba(255,255,255,.08);color:var(--warm);padding:.75rem .85rem;font-family:var(--sans);font-weight:100;font-size:.48rem;letter-spacing:.22em;text-transform:uppercase;cursor:pointer;white-space:nowrap;transition:all .3s;}
+.promo-btn:hover{border-color:rgba(197,163,94,.24);color:var(--gold);}
+.pm{font-family:var(--sans);font-weight:100;font-size:.5rem;letter-spacing:.18em;margin-bottom:.5rem;display:none;}
+.pm.on{display:block;}
+.pm.ok{color:#7ebd7e;}
+.pm.err{color:#c07070;}
+.cs-line{display:flex;justify-content:space-between;font-family:var(--sans);font-weight:100;font-size:.56rem;letter-spacing:.18em;color:var(--ash);margin-bottom:.42rem;}
+.cs-line span:last-child{color:var(--ivory);}
+.cs-line.total{font-family:var(--display);font-weight:500;font-size:1.08rem;color:var(--ivory);margin-top:.7rem;}
+.cs-line.total span:last-child{color:var(--gold);}
+.cs-trust{margin-top:2rem;font-family:var(--sans);font-weight:100;font-size:.46rem;letter-spacing:.22em;color:var(--ash);line-height:2.8;text-transform:uppercase;}
+/* review */
+.rv-block{margin-bottom:2.2rem;}
+.rv-lbl{font-family:var(--sans);font-weight:100;font-size:.42rem;letter-spacing:.6em;text-transform:uppercase;color:var(--gold-lo);margin-bottom:.7rem;padding-bottom:.5rem;border-bottom:.5px solid rgba(255,255,255,.04);}
+.rv-val{font-family:var(--serif);font-weight:300;font-size:.9rem;color:var(--warm);line-height:2.2;}
+.rv-item{display:flex;justify-content:space-between;font-family:var(--serif);font-size:.86rem;color:var(--stone);padding:.38rem 0;border-bottom:.5px solid rgba(255,255,255,.03);}
+.rv-p{color:var(--gold);}
+.rv-grand{display:flex;justify-content:space-between;padding-top:.85rem;font-family:var(--display);font-weight:500;font-size:1.15rem;}
+.rv-grand span:last-child{color:var(--gold);}
+/* confirm — reservation ceremony */
+.confirm-ceremony{text-align:center;padding:5rem 3rem;}
+.confirm-seal{width:64px;height:64px;border-radius:50%;margin:0 auto 2.5rem;border:.5px solid rgba(197,163,94,.22);display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:var(--gold);}
+.confirm-title{font-family:var(--display);font-weight:600;font-size:3rem;letter-spacing:.1em;color:var(--ivory);margin-bottom:.3rem;}
+.confirm-sub{font-family:var(--serif);font-style:italic;font-size:1rem;color:var(--stone);margin-bottom:.6rem;}
+.confirm-ref{font-family:var(--sans);font-weight:100;font-size:.48rem;letter-spacing:.6em;text-transform:uppercase;color:var(--gold);margin-bottom:3rem;}
+.confirm-stages{display:flex;flex-direction:column;gap:.4rem;margin-bottom:2.8rem;text-align:left;background:rgba(197,163,94,.025);border:.5px solid rgba(197,163,94,.07);padding:1.5rem 1.8rem;}
+.cs-stage{display:flex;align-items:center;gap:.8rem;font-family:var(--sans);font-weight:100;font-size:.46rem;letter-spacing:.28em;text-transform:uppercase;color:var(--stone);}
+.cs-stage::before{content:'';width:5px;height:5px;border-radius:50%;background:rgba(197,163,94,.3);flex-shrink:0;}
+.cs-stage.active::before{background:var(--gold);animation:blink 2s ease-in-out infinite;}
+.confirm-det{text-align:left;background:rgba(197,163,94,.02);border:.5px solid rgba(197,163,94,.06);padding:1.4rem 1.8rem;margin-bottom:2.5rem;}
+.cdr{display:flex;justify-content:space-between;padding:.45rem 0;border-bottom:.5px solid rgba(255,255,255,.04);font-family:var(--sans);font-weight:100;font-size:.6rem;letter-spacing:.15em;}
+.cdr:last-child{border:none;}
+.cdl{color:var(--ash);text-transform:uppercase;}
+.cdv{color:var(--ivory);}
+/* step nav */
+.step-nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 3rem;border-top:.5px solid rgba(197,163,94,.04);}
+.btn-back{background:none;border:.5px solid rgba(255,255,255,.06);color:var(--ash);padding:.65rem 1.5rem;font-family:var(--sans);font-weight:100;font-size:.48rem;letter-spacing:.35em;text-transform:uppercase;cursor:pointer;transition:all .35s;}
+.btn-back:hover{border-color:rgba(255,255,255,.18);color:var(--ivory);}
+.btn-next{background:transparent;border:.5px solid rgba(197,163,94,.2);color:var(--gold);padding:.65rem 2.4rem;font-family:var(--sans);font-weight:200;font-size:.48rem;letter-spacing:.5em;text-transform:uppercase;cursor:pointer;transition:all .6s var(--lux);}
+.btn-next:hover{background:var(--gold);color:var(--void);border-color:var(--gold);}
+
+/* ── CONTACT ── */
+.contact{padding:16rem 0;border-top:.5px solid rgba(197,163,94,.04);}
+.ct-inner{max-width:960px;margin:0 auto;padding:0 3rem;}
+.ct-header{text-align:center;margin-bottom:10rem;}
+.ct-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(197,163,94,.04);margin-bottom:8rem;}
+.cc{background:var(--void);padding:5rem 3.5rem;transition:background .7s var(--lux);}
+.cc:hover{background:var(--obsidian);}
+.cc-role{font-family:var(--sans);font-weight:100;font-size:.42rem;letter-spacing:.65em;text-transform:uppercase;color:var(--ash);margin-bottom:.9rem;}
+.cc-name{font-family:var(--display);font-weight:600;font-size:1.95rem;letter-spacing:.06em;color:var(--ivory);margin-bottom:.4rem;}
+.cc-rule{width:16px;height:.5px;background:rgba(197,163,94,.12);margin:1.5rem 0;}
+.cc-lbl{font-family:var(--sans);font-weight:100;font-size:.4rem;letter-spacing:.5em;text-transform:uppercase;color:var(--ash);margin-bottom:.5rem;}
+.cc-tel{display:inline-flex;align-items:center;gap:.7rem;font-family:var(--sans);font-weight:200;font-size:.88rem;letter-spacing:.08em;color:var(--warm);text-decoration:none;transition:color .3s;}
+.cc-tel:hover{color:var(--gold);}
+.ct-email{text-align:center;}
+.ct-email-lbl{font-family:var(--sans);font-weight:100;font-size:.44rem;letter-spacing:.65em;text-transform:uppercase;color:var(--ash);margin-bottom:.9rem;}
+.ct-email-link{font-family:var(--serif);font-style:italic;font-size:1.2rem;color:var(--warm);text-decoration:none;transition:color .3s;border-bottom:.5px solid rgba(255,255,255,.07);padding-bottom:4px;}
+.ct-email-link:hover{color:var(--ivory);}
+
+/* ── WHATSAPP ── */
+.wa-float{position:fixed;bottom:2.5rem;right:2.5rem;z-index:9990;display:flex;flex-direction:column;align-items:flex-end;gap:.5rem;opacity:0;animation:rise .8s 4.5s var(--rise) forwards;}
+.wa-lbl{font-family:var(--sans);font-weight:100;font-size:.38rem;letter-spacing:.5em;text-transform:uppercase;color:var(--ash);}
+.wa-btn{width:50px;height:50px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;text-decoration:none;transition:all .5s var(--lux);box-shadow:0 0 0 1px rgba(197,163,94,.18);}
+.wa-btn:hover{background:var(--gold-hi);box-shadow:0 0 0 10px rgba(197,163,94,.06),0 0 40px rgba(197,163,94,.12);}
+.wa-btn svg{width:22px;height:22px;fill:var(--void);}
+
+/* ── TOAST ── */
+.toast{position:fixed;bottom:7rem;right:2.5rem;z-index:9989;background:var(--chamber);border:.5px solid rgba(197,163,94,.1);border-left:1px solid var(--gold-lo);padding:.9rem 1.5rem;font-family:var(--sans);font-weight:100;font-size:.5rem;letter-spacing:.25em;text-transform:uppercase;color:var(--warm);transform:translateX(130%);transition:transform .45s var(--rise);max-width:280px;}
+.toast.on{transform:translateX(0);}
+
+/* ── FOOTER ── */
+footer{padding:6.5rem 3rem;border-top:.5px solid rgba(197,163,94,.04);display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:4rem;}
+.ft-brand{display:flex;flex-direction:column;gap:6px;}
+.ft-brand-name{font-family:var(--display);font-weight:600;font-size:1.05rem;letter-spacing:.65em;color:var(--gold);text-transform:uppercase;}
+.ft-brand-sub{font-family:var(--sans);font-weight:100;font-size:.36rem;letter-spacing:.75em;text-transform:uppercase;color:var(--ash);}
+.ft-stamp{font-family:var(--sans);font-weight:100;font-size:.38rem;letter-spacing:.5em;text-transform:uppercase;color:var(--ash);margin-top:1.2rem;line-height:3;}
+.ft-ct{display:flex;flex-direction:column;gap:.65rem;}
+.ft-ct-title{font-family:var(--sans);font-weight:100;font-size:.4rem;letter-spacing:.6em;text-transform:uppercase;color:var(--ash);margin-bottom:.35rem;}
+.ft-ct-row{display:flex;align-items:center;gap:.8rem;flex-wrap:wrap;}
+.ft-ct-role{font-family:var(--sans);font-weight:100;font-size:.4rem;letter-spacing:.32em;text-transform:uppercase;color:var(--ash);min-width:50px;}
+.ft-ct-name{font-family:var(--serif);font-size:.82rem;color:var(--stone);}
+.ft-ct-tel{font-family:var(--sans);font-weight:200;font-size:.6rem;letter-spacing:.09em;color:var(--warm);text-decoration:none;transition:color .3s;}
+.ft-ct-tel:hover{color:var(--gold);}
+.ft-domain{font-family:var(--sans);font-weight:100;font-size:.42rem;letter-spacing:.5em;text-transform:uppercase;color:var(--ash);margin-top:.65rem;border-top:.5px solid rgba(255,255,255,.04);padding-top:.7rem;}
+.ft-right{display:flex;flex-direction:column;align-items:flex-end;gap:1.2rem;}
+.ft-legal{font-family:var(--sans);font-weight:100;font-size:.4rem;letter-spacing:.3em;text-transform:uppercase;color:var(--ash);}
+.ft-links{display:flex;gap:2.5rem;}
+.ft-links a{font-family:var(--sans);font-weight:100;font-size:.44rem;letter-spacing:.38em;text-transform:uppercase;color:var(--ash);text-decoration:none;transition:color .4s;}
+.ft-links a:hover{color:var(--ivory);}
+
+/* ── RESPONSIVE ── */
+@media(max-width:960px){
+  nav{padding:1.4rem 1.5rem;top:28px;}
+  nav.scrolled{padding:1rem 1.5rem;}
+  .nav-menu,.tb-heritage{display:none;}
+  .ar-content{padding:10rem 1.5rem 8rem;}
+  .ar-vl,.ar-hl,.ar-hr{display:none;}
+  .legend,.wardrobe,.ritual,.heritage,.founder,.whispers,.contact{padding:8rem 0;}
+  .leg-inner,.her-inner,.whis-inner,.rit-inner,.wd-inner,.ct-inner{padding:0 1.5rem;}
+  .identity{grid-template-columns:1fr;}
+  .identity.flip{direction:ltr;}
+  .id-stage{min-height:380px;}
+  .id-info{padding:4rem 2rem;}
+  .wd-moments,.rit-chapters,.rit-steps,.whis-grid{grid-template-columns:1fr;}
+  .her-grid,.ct-grid{grid-template-columns:1fr;}
+  .cer-layout{grid-template-columns:1fr;}
+  .cer-sum{display:none;}
+  .frow,.frow.tri{grid-template-columns:1fr;}
+  .salon{width:100vw;}
+  footer{padding:4rem 1.5rem;flex-direction:column;gap:3rem;}
+  .ft-right{align-items:flex-start;}
+  .topbar{padding:.4rem 1.5rem;flex-wrap:wrap;gap:.5rem;}
+  .tb-left{flex-wrap:wrap;gap:1rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ ENTRANCE CURTAIN ═══ -->
+<div id="curtain">
+  <div class="c-mark">Nocternum</div>
+  <div class="c-vline"></div>
+  <div class="c-bar"></div>
+  <div class="c-sub">Private Maison · Paris · Est. 2012</div>
+</div>
+
+<!-- ═══ WHATSAPP CONCIERGE ═══ -->
+<div class="wa-float">
+  <div class="wa-lbl">Speak to the Maison</div>
+  <a class="wa-btn" href="https://wa.me/917569897846?text=I%20wish%20to%20speak%20with%20Maison%20Nocternum%20regarding%20a%20private%20acquisition." target="_blank" title="Concierge">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+</div>
+
+<!-- ═══ TOPBAR ═══ -->
+<div class="topbar" id="topbar">
+  <div class="tb-left">
+    <div class="tb-item">
+      <span class="tb-role">Owner</span>
+      <span class="tb-name">VG Harsh</span>
+      <a href="tel:+919969208527" class="tb-tel">+91 99692 08527</a>
+    </div>
+    <div class="tb-sep"></div>
+    <div class="tb-item">
+      <span class="tb-role">Co-Owner</span>
+      <span class="tb-name">Nidhish Gupta</span>
+      <a href="tel:+917569897846" class="tb-tel">+91 75698 97846</a>
+    </div>
+  </div>
+  <div class="tb-heritage">Designed in Paris · Inspired from Italy · Crafted in India · Aged in Royalty</div>
+  <a href="https://wa.me/917569897846?text=I%20wish%20to%20enquire%20about%20Nocternum." target="_blank" class="tb-concierge">Speak to the Maison</a>
+</div>
+
+<!-- ═══ NAV ═══ -->
+<nav id="nav">
+  <a href="#top" class="nav-logo">
+    <span class="nl-name">Nocternum</span>
+    <span class="nl-sub">Private Maison · Est. 2012</span>
+  </a>
+  <ul class="nav-menu">
+    <li><a href="#legend">The Maison</a></li>
+    <li><a href="#wardrobe">The Wardrobe</a></li>
+    <li><a href="#heritage">Heritage</a></li>
+    <li><a href="#contact">Private Orders</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="nav-sel" onclick="openSalon()">
+      Selection <span class="sel-n" id="selBadge">0</span>
+    </button>
+  </div>
+</nav>
+
+<!-- ═══════ I — THE ARRIVAL ═══════ -->
+<section class="arrival" id="top">
+  <div class="ar-bg"></div>
+  <div class="ar-pulse"></div>
+  <div class="ar-hl"></div>
+  <div class="ar-hr"></div>
+  <div class="ar-vl"></div>
+  <div class="ar-content">
+    <div class="ar-pre">Private Maison · Paris · Est. 2012</div>
+    <h1 class="ar-title">
+      NOCTERNUM
+      <em>Not created for everyone.</em>
+    </h1>
+    <div class="ar-vline"></div>
+    <p class="ar-whisper">
+      You were not meant to find this easily.<br>
+      That is precisely the point.
+    </p>
+    <div class="ar-enter">
+      <a href="#legend" class="btn-enter">Enter the Maison</a>
+    </div>
+  </div>
+  <div class="ar-origin">Designed in Paris · Inspired from Italy · Crafted in India · Aged in Royalty</div>
+  <div class="ar-descend"><div class="desc-line"></div></div>
+</section>
+
+<!-- MARQUEE -->
+<div class="mq">
+  <div class="mq-inner">
+    <span>Not created for everyone</span><span class="dot">◆</span>
+    <span>Designed in Paris</span><span class="dot">◆</span>
+    <span>Inspired from Italy</span><span class="dot">◆</span>
+    <span>Crafted in India</span><span class="dot">◆</span>
+    <span>Aged in Royalty</span><span class="dot">◆</span>
+    <span>Hand-filled</span><span class="dot">◆</span>
+    <span>Batch Numbered</span><span class="dot">◆</span>
+    <span>Reserved for Collectors</span><span class="dot">◆</span>
+    <span>A Private Fragrance Maison</span><span class="dot">◆</span>
+    <span>Not created for everyone</span><span class="dot">◆</span>
+    <span>Designed in Paris</span><span class="dot">◆</span>
+    <span>Inspired from Italy</span><span class="dot">◆</span>
+    <span>Crafted in India</span><span class="dot">◆</span>
+    <span>Aged in Royalty</span><span class="dot">◆</span>
+    <span>Hand-filled</span><span class="dot">◆</span>
+    <span>Batch Numbered</span><span class="dot">◆</span>
+    <span>Reserved for Collectors</span><span class="dot">◆</span>
+    <span>A Private Fragrance Maison</span><span class="dot">◆</span>
+  </div>
+</div>
+
+<!-- ═══════ II — THE LEGEND ═══════ -->
+<section class="legend" id="legend">
+  <div class="legend-bg"></div>
+  <div class="leg-ghost">N</div>
+  <div class="leg-inner">
+    <div class="leg-eyebrow v">The Philosophy of the Maison</div>
+    <div class="leg-manifesto v d1">"The finest things in life do not advertise themselves. They simply exist — and those who deserve to find them, do."</div>
+    <div class="leg-orn v d2"><span class="leg-orn-g">◆</span></div>
+    <p class="leg-body v d2">Nocternum was not launched. It was revealed — quietly, to the few who were already looking for something the world had not yet offered them. A private fragrance maison that believes the highest form of luxury is the confidence to remain unknown to those who are not ready for it.</p>
+    <p class="leg-body v d3">We do not market. We do not discount. We do not produce in quantities that would diminish the experience of wearing one. Three fragrances exist in this maison. Each is an identity. Each is crafted in batches small enough that the person wearing it will always be among a distinguished few.</p>
+    <div class="leg-stamp v d4">Designed in Paris · Inspired from Italy<br>Crafted in India · Aged in Royalty</div>
+  </div>
+</section>
+
+<!-- PROOF -->
+<div class="proof">
+  <div class="pf v"><div class="pf-val">2,400+</div><div class="pf-lbl">Collectors Worldwide</div></div>
+  <div class="pf v d1"><div class="pf-val">3</div><div class="pf-lbl">Identities Only</div></div>
+  <div class="pf v d2"><div class="pf-val">Est. 2012</div><div class="pf-lbl">Paris Heritage</div></div>
+  <div class="pf v d3"><div class="pf-val">Private</div><div class="pf-lbl">Fragrance Maison</div></div>
+</div>
+
+<!-- ═══════ III — THE WARDROBE ═══════ -->
+<section class="wardrobe" id="wardrobe">
+  <div class="wd-inner">
+    <div class="sec-pre v">The Nocternum Fragrance System</div>
+    <h2 class="sec-title v d1">The Fragrance Wardrobe</h2>
+    <p class="sec-sub v d2">One fragrance for every chapter of the day.<br>Three identities. One complete man.</p>
+    <div class="wd-moments">
+      <div class="wm v">
+        <div class="wm-n">I</div>
+        <div class="wm-moment">The Night Signature</div>
+        <div class="wm-name">Nocternum</div>
+        <div class="wm-type">Dark · Warm · Mysterious</div>
+      </div>
+      <div class="wm v d1">
+        <div class="wm-n">II</div>
+        <div class="wm-moment">The Celebration Elixir</div>
+        <div class="wm-name">Nocternum Rouge</div>
+        <div class="wm-type">Fruity · Rich · Luxurious</div>
+      </div>
+      <div class="wm v d2">
+        <div class="wm-n">III</div>
+        <div class="wm-moment">The Day Awakening</div>
+        <div class="wm-name">Solar Punch</div>
+        <div class="wm-type">Fresh · Citrus · Confident</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── IDENTITY I ─── -->
+  <div class="identity" id="f1">
+    <div class="id-stage">
+      <div class="id-stage-bg" style="background:radial-gradient(ellipse 55% 65% at 50% 42%,rgba(22,12,48,.92) 0%,rgba(1,2,8,1) 72%);"></div>
+      <div class="id-ghost">I</div>
+      <div class="id-bottle-wrap">
+        <svg class="id-bottle" viewBox="0 0 100 220" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="f1b" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#09091e"/><stop offset="40%" stop-color="#1c1c42"/><stop offset="100%" stop-color="#09091e"/></linearGradient>
+            <linearGradient id="f1g" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#6a5030"/><stop offset="50%" stop-color="#c5a35e"/><stop offset="100%" stop-color="#6a5030"/></linearGradient>
+            <linearGradient id="f1l" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#110f30"/><stop offset="100%" stop-color="#050518"/></linearGradient>
+          </defs>
+          <rect x="38" y="5" width="24" height="11" rx="2" fill="#0b0b22"/>
+          <rect x="42" y="1" width="16" height="6" rx="1" fill="#07071a"/>
+          <rect x="38" y="12" width="24" height="2.5" fill="url(#f1g)" opacity=".55"/>
+          <rect x="35" y="16" width="30" height="24" rx="1.5" fill="url(#f1b)"/>
+          <rect x="35" y="37" width="30" height="2" fill="url(#f1g)" opacity=".5"/>
+          <rect x="15" y="39" width="70" height="170" rx="5" fill="url(#f1b)"/>
+          <rect x="19" y="46" width="9" height="158" rx="3" fill="rgba(255,255,255,0.015)"/>
+          <rect x="22" y="82" width="56" height="100" rx="1" fill="url(#f1l)"/>
+          <rect x="22" y="82" width="56" height="100" rx="1" fill="none" stroke="rgba(197,163,94,0.25)" stroke-width=".5"/>
+          <line x1="28" y1="97" x2="72" y2="97" stroke="rgba(197,163,94,.18)" stroke-width=".4"/>
+          <line x1="28" y1="174" x2="72" y2="174" stroke="rgba(197,163,94,.18)" stroke-width=".4"/>
+          <text x="50" y="126" text-anchor="middle" font-family="Cormorant,serif" font-weight="600" font-size="10.5" fill="#ebe0c8" letter-spacing="1.5">NOCTERNUM</text>
+          <text x="50" y="144" text-anchor="middle" font-family="Cormorant Garamond,serif" font-style="italic" font-size="7" fill="rgba(197,163,94,0.55)">Eau de Parfum</text>
+          <rect x="15" y="200" width="70" height="3" rx="1" fill="url(#f1g)" opacity=".42"/>
+        </svg>
+        <div class="id-stage-lbl">The Night Signature</div>
+        <div class="id-batch">Batch No. 009 · Limited Edition</div>
+      </div>
+    </div>
+    <div class="id-info">
+      <div class="id-idx v">Identity One of Three · Private Edition</div>
+      <div class="id-name v d1">NOCTERNUM</div>
+      <div class="id-type v d1">Dark · Warm · Mysterious · Winter</div>
+      <div class="id-rule v d2"></div>
+      <div class="id-essence v d2">"The signature identity of the maison. Reserved for those who move through the night with the quiet certainty that they have already arrived."</div>
+      <div class="id-meta v d2">
+        <div><span class="im-k">Occasion</span><span class="im-v">Night · Signature</span></div>
+        <div><span class="im-k">Mood</span><span class="im-v">Powerful · Calm</span></div>
+        <div><span class="im-k">Season</span><span class="im-v">Autumn · Winter</span></div>
+        <div><span class="im-k">Longevity</span><span class="im-v">8–10 Hours</span></div>
+      </div>
+      <div class="id-notes-lbl v">Signature Notes</div>
+      <div class="id-pills v d1"><span class="pill">Vanilla</span><span class="pill">Dark Woods</span><span class="pill">Amber</span><span class="pill">Soft Smoke</span><span class="pill">Spice</span></div>
+      <div class="id-access-badge v">Private Edition · Access Granted</div>
+      <span class="id-scarcity v">48 bottles remain in this batch worldwide</span>
+      <div class="id-micro v">
+        <span>Hand-filled · Batch No. 009</span>
+        <span>Limited Atelier Production · Not Mass Produced</span>
+        <span>Each bottle individually numbered</span>
+      </div>
+      <div class="id-sizes v" id="sz1">
+        <button class="sz on" onclick="pickSz(1,'50ml',this)">50ml</button>
+        <button class="sz" onclick="pickSz(1,'100ml',this)">100ml</button>
+        <button class="sz" onclick="pickSz(1,'200ml',this)">200ml</button>
+      </div>
+      <div class="id-anchor v">Comparable niche fragrances: <s>₹8,000+</s> — Maison collectors' price:</div>
+      <div class="id-price v" id="pr1">₹1,000<small>Eau de Parfum · 50ml</small></div>
+      <div class="id-actions v">
+        <button class="btn-reserve" onclick="addToCart(1,this)">Reserve this Bottle</button>
+        <a class="btn-concierge" href="https://wa.me/917569897846?text=I%20wish%20to%20reserve%20NOCTERNUM%20EDP%20from%20Maison%20Nocternum." target="_blank">Concierge</a>
+      </div>
+      <div class="id-waitlist v"><div class="waitlist-note">Private waiting list available for next batch</div></div>
+    </div>
+  </div>
+
+  <!-- ─── IDENTITY II ─── -->
+  <div class="identity flip" id="f2">
+    <div class="id-stage">
+      <div class="id-stage-bg" style="background:radial-gradient(ellipse 55% 65% at 50% 42%,rgba(48,6,6,.92) 0%,rgba(4,1,1,1) 72%);"></div>
+      <div class="id-ghost">II</div>
+      <div class="id-bottle-wrap">
+        <svg class="id-bottle id-bottle-2" viewBox="0 0 100 220" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="f2b" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#1a0606"/><stop offset="40%" stop-color="#3c0e0e"/><stop offset="100%" stop-color="#1a0606"/></linearGradient>
+            <linearGradient id="f2g" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#6a5030"/><stop offset="50%" stop-color="#c5a35e"/><stop offset="100%" stop-color="#6a5030"/></linearGradient>
+            <linearGradient id="f2l" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#2c0808"/><stop offset="100%" stop-color="#0a0202"/></linearGradient>
+          </defs>
+          <rect x="38" y="5" width="24" height="11" rx="2" fill="#220a0a"/>
+          <rect x="42" y="1" width="16" height="6" rx="1" fill="#160404"/>
+          <rect x="38" y="12" width="24" height="2.5" fill="url(#f2g)" opacity=".55"/>
+          <rect x="35" y="16" width="30" height="24" rx="1.5" fill="url(#f2b)"/>
+          <rect x="35" y="37" width="30" height="2" fill="url(#f2g)" opacity=".5"/>
+          <rect x="15" y="39" width="70" height="170" rx="5" fill="url(#f2b)"/>
+          <rect x="19" y="46" width="9" height="158" rx="3" fill="rgba(255,100,100,0.012)"/>
+          <rect x="22" y="82" width="56" height="100" rx="1" fill="url(#f2l)"/>
+          <rect x="22" y="82" width="56" height="100" rx="1" fill="none" stroke="rgba(197,163,94,0.25)" stroke-width=".5"/>
+          <line x1="28" y1="97" x2="72" y2="97" stroke="rgba(197,163,94,.18)" stroke-width=".4"/>
+          <line x1="28" y1="174" x2="72" y2="174" stroke="rgba(197,163,94,.18)" stroke-width=".4"/>
+          <text x="50" y="120" text-anchor="middle" font-family="Cormorant,serif" font-weight="600" font-size="10" fill="#ebe0c8" letter-spacing="1.5">NOCTERNUM</text>
+          <text x="50" y="138" text-anchor="middle" font-family="Cormorant,serif" font-style="italic" font-weight="500" font-size="13" fill="rgba(205,75,55,0.85)">Rouge</text>
+          <text x="50" y="154" text-anchor="middle" font-family="Cormorant Garamond,serif" font-style="italic" font-size="6.5" fill="rgba(197,163,94,0.5)">Eau de Parfum</text>
+          <rect x="15" y="200" width="70" height="3" rx="1" fill="url(#f2g)" opacity=".42"/>
+        </svg>
+        <div class="id-stage-lbl">The Celebration Elixir</div>
+        <div class="id-batch">Batch No. 012 · Limited Edition</div>
+      </div>
+    </div>
+    <div class="id-info">
+      <div class="id-idx v">Identity Two of Three · Private Edition</div>
+      <div class="id-name v d1">NOCTERNUM<br>ROUGE</div>
+      <div class="id-type v d1">Fruity · Warm · Luxurious · Winter</div>
+      <div class="id-rule v d2"></div>
+      <div class="id-essence v d2">"The celebration elixir. Rich, radiant, unmissable — worn on the occasions that demand your full and undivided presence."</div>
+      <div class="id-meta v d2">
+        <div><span class="im-k">Occasion</span><span class="im-v">Parties · Special Events</span></div>
+        <div><span class="im-k">Mood</span><span class="im-v">Attractive · Rich</span></div>
+        <div><span class="im-k">Season</span><span class="im-v">Autumn · Winter</span></div>
+        <div><span class="im-k">Longevity</span><span class="im-v">7–9 Hours</span></div>
+      </div>
+      <div class="id-notes-lbl v">Signature Notes</div>
+      <div class="id-pills v d1"><span class="pill">Sweet Fruits</span><span class="pill">Vanilla</span><span class="pill">Soft Florals</span><span class="pill">Amber</span><span class="pill">Sandalwood</span></div>
+      <div class="id-access-badge v">Private Edition · Access Granted</div>
+      <span class="id-scarcity v">31 bottles remain in this batch worldwide</span>
+      <div class="id-micro v">
+        <span>Hand-filled · Batch No. 012</span>
+        <span>Limited Atelier Production · Not Mass Produced</span>
+        <span>Each bottle individually numbered</span>
+      </div>
+      <div class="id-sizes v" id="sz2">
+        <button class="sz on" onclick="pickSz(2,'50ml',this)">50ml</button>
+        <button class="sz" onclick="pickSz(2,'100ml',this)">100ml</button>
+        <button class="sz" onclick="pickSz(2,'200ml',this)">200ml</button>
+      </div>
+      <div class="id-anchor v">Comparable niche fragrances: <s>₹9,500+</s> — Maison collectors' price:</div>
+      <div class="id-price v" id="pr2">₹1,000<small>Eau de Parfum · 50ml</small></div>
+      <div class="id-actions v">
+        <button class="btn-reserve" onclick="addToCart(2,this)">Reserve this Bottle</button>
+        <a class="btn-concierge" href="https://wa.me/917569897846?text=I%20wish%20to%20reserve%20NOCTERNUM%20ROUGE%20EDP." target="_blank">Concierge</a>
+      </div>
+      <div class="id-waitlist v"><div class="waitlist-note">Private waiting list available for next batch</div></div>
+    </div>
+  </div>
+
+  <!-- ─── IDENTITY III ─── -->
+  <div class="identity" id="f3">
+    <div class="id-stage">
+      <div class="id-stage-bg" style="background:radial-gradient(ellipse 55% 65% at 50% 42%,rgba(16,20,6,.92) 0%,rgba(2,3,1,1) 72%);"></div>
+      <div class="id-ghost">III</div>
+      <div class="id-bottle-wrap">
+        <svg class="id-bottle id-bottle-3" viewBox="0 0 100 220" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="f3b" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#0c0e06"/><stop offset="40%" stop-color="#202408"/><stop offset="100%" stop-color="#0c0e06"/></linearGradient>
+            <linearGradient id="f3g" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#6a5030"/><stop offset="50%" stop-color="#c5a35e"/><stop offset="100%" stop-color="#6a5030"/></linearGradient>
+            <linearGradient id="f3l" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1a1e06"/><stop offset="100%" stop-color="#060802"/></linearGradient>
+          </defs>
+          <rect x="38" y="5" width="24" height="11" rx="2" fill="#141806"/>
+          <rect x="42" y="1" width="16" height="6" rx="1" fill="#0c1002"/>
+          <rect x="38" y="12" width="24" height="2.5" fill="url(#f3g)" opacity=".55"/>
+          <rect x="35" y="16" width="30" height="24" rx="1.5" fill="url(#f3b)"/>
+          <rect x="35" y="37" width="30" height="2" fill="url(#f3g)" opacity=".5"/>
+          <rect x="15" y="39" width="70" height="170" rx="5" fill="url(#f3b)"/>
+          <rect x="19" y="46" width="9" height="158" rx="3" fill="rgba(210,240,100,0.012)"/>
+          <rect x="22" y="82" width="56" height="100" rx="1" fill="url(#f3l)"/>
+          <rect x="22" y="82" width="56" height="100" rx="1" fill="none" stroke="rgba(197,163,94,0.25)" stroke-width=".5"/>
+          <line x1="28" y1="97" x2="72" y2="97" stroke="rgba(197,163,94,.18)" stroke-width=".4"/>
+          <line x1="28" y1="174" x2="72" y2="174" stroke="rgba(197,163,94,.18)" stroke-width=".4"/>
+          <text x="50" y="122" text-anchor="middle" font-family="Cormorant,serif" font-weight="600" font-size="10.5" fill="#ebe0c8" letter-spacing="1">SOLAR</text>
+          <text x="50" y="142" text-anchor="middle" font-family="Cormorant,serif" font-weight="600" font-size="10.5" fill="#ebe0c8" letter-spacing="1">PUNCH</text>
+          <text x="50" y="158" text-anchor="middle" font-family="Cormorant Garamond,serif" font-style="italic" font-size="6.5" fill="rgba(197,163,94,0.5)">Eau de Parfum</text>
+          <rect x="15" y="200" width="70" height="3" rx="1" fill="url(#f3g)" opacity=".42"/>
+        </svg>
+        <div class="id-stage-lbl">The Day Awakening</div>
+        <div class="id-batch">Batch No. 015 · Limited Edition</div>
+      </div>
+    </div>
+    <div class="id-info">
+      <div class="id-idx v">Identity Three of Three · Private Edition</div>
+      <div class="id-name v d1">SOLAR<br>PUNCH</div>
+      <div class="id-type v d1">Fresh · Citrus · Energetic · Summer</div>
+      <div class="id-rule v d2"></div>
+      <div class="id-essence v d2">"The day awakening. The fragrance that transforms the ordinary morning into a deliberate declaration of intent."</div>
+      <div class="id-meta v d2">
+        <div><span class="im-k">Occasion</span><span class="im-v">Daytime · Gym · Casual</span></div>
+        <div><span class="im-k">Mood</span><span class="im-v">Clean · Confident</span></div>
+        <div><span class="im-k">Season</span><span class="im-v">Spring · Summer</span></div>
+        <div><span class="im-k">Longevity</span><span class="im-v">5–7 Hours</span></div>
+      </div>
+      <div class="id-notes-lbl v">Signature Notes</div>
+      <div class="id-pills v d1"><span class="pill">Citrus</span><span class="pill">Fresh Notes</span><span class="pill">Light Woods</span><span class="pill">Clean Musk</span></div>
+      <div class="id-access-badge v">Private Edition · Access Granted</div>
+      <span class="id-scarcity v">62 bottles remain in this batch worldwide</span>
+      <div class="id-micro v">
+        <span>Hand-filled · Batch No. 015</span>
+        <span>Limited Atelier Production · Not Mass Produced</span>
+        <span>Each bottle individually numbered</span>
+      </div>
+      <div class="id-sizes v" id="sz3">
+        <button class="sz on" onclick="pickSz(3,'50ml',this)">50ml</button>
+        <button class="sz" onclick="pickSz(3,'100ml',this)">100ml</button>
+        <button class="sz" onclick="pickSz(3,'200ml',this)">200ml</button>
+      </div>
+      <div class="id-anchor v">Comparable niche fragrances: <s>₹7,500+</s> — Maison collectors' price:</div>
+      <div class="id-price v" id="pr3">₹1,000<small>Eau de Parfum · 50ml</small></div>
+      <div class="id-actions v">
+        <button class="btn-reserve" onclick="addToCart(3,this)">Reserve this Bottle</button>
+        <a class="btn-concierge" href="https://wa.me/917569897846?text=I%20wish%20to%20reserve%20SOLAR%20PUNCH%20EDP." target="_blank">Concierge</a>
+      </div>
+      <div class="id-waitlist v"><div class="waitlist-note">Private waiting list available for next batch</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ IV — THE RITUAL ═══════ -->
+<section class="ritual" id="ritual">
+  <div class="rit-inner">
+    <div class="sec-pre v" style="text-align:center;">The Daily Ceremony</div>
+    <h2 class="sec-title v d1" style="text-align:center;">The Ritual</h2>
+    <div class="rit-chapters">
+      <div class="rc v"><div class="rc-time">Morning → Daily Wear</div><div class="rc-frag">Solar Punch</div><div class="rc-desc">"Begin the day with clarity. The citrus opening declares your arrival before a word is spoken. Wear it as a promise to yourself."</div></div>
+      <div class="rc v d1"><div class="rc-time">Night → Signature Moment</div><div class="rc-frag">Nocternum</div><div class="rc-desc">"When the night opens before you — the signature identity takes over. Let the dark woods and amber speak your character without words."</div></div>
+      <div class="rc v d2"><div class="rc-time">Celebration → Special Occasions</div><div class="rc-frag">Nocternum Rouge</div><div class="rc-desc">"For the occasions that demand everything of you. Rich, radiant, unforgettable — worn when the moment must be remembered."</div></div>
+    </div>
+    <div class="rit-steps">
+      <div class="rs v"><div class="rs-n">I</div><div class="rs-t">The Moment</div><div class="rs-b">Apply to freshly bathed skin. Warmth opens the surface and allows the top notes to announce themselves with quiet authority.</div></div>
+      <div class="rs v d1"><div class="rs-n">II</div><div class="rs-t">The Placement</div><div class="rs-b">Pulse points only — wrist, neck, behind the ear. Two applications. Never more. Restraint is the mark of the distinguished man.</div></div>
+      <div class="rs v d2"><div class="rs-n">III</div><div class="rs-t">The Patience</div><div class="rs-b">Allow thirty minutes. Heart notes require your body's warmth to evolve. Do not judge a Nocternum fragrance at first breath.</div></div>
+      <div class="rs v d3"><div class="rs-n">IV</div><div class="rs-t">The Silence</div><div class="rs-b">The greatest compliment: when someone asks what you are wearing — not what fragrance. It is never announced. It is discovered.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ HERITAGE ═══════ -->
+<section class="heritage" id="heritage">
+  <div class="heritage-bg"></div>
+  <div class="her-inner">
+    <div class="her-grid">
+      <div>
+        <div class="sec-pre v" style="text-align:left;display:block;margin-bottom:2rem;">The Origin</div>
+        <h2 class="her-headline v d1">A Maison built on<br>four corners<br><em>of the world.</em></h2>
+        <div class="her-stamp v d2">Designed in Paris<br>Inspired from Italy<br>Crafted in India<br>Aged in Royalty</div>
+        <p class="her-body v d3">Nocternum was not conceived in a boardroom. It was conceived in a conviction — that the world's finest fragrance need not carry a European price tag, but must carry an unwavering European soul. That Indian craftsmanship, guided by Parisian direction and Italian inspiration, can produce something the world has never smelled before.</p>
+      </div>
+      <div class="her-pillars">
+        <div class="hp v"><div class="hp-loc">I · Paris</div><div class="hp-name">Designed in Paris</div><div class="hp-desc">Every element — the bottle geometry, the typographic identity, the aesthetic restraint — is conceived under Parisian creative direction. The city of silence and elegance governs every decision.</div></div>
+        <div class="hp v d1"><div class="hp-loc">II · Italy</div><div class="hp-name">Inspired from Italy</div><div class="hp-desc">Italian passion breathes into every composition. From the citrus groves of Sicily to the rose fields of Florence — Italy gives Nocternum its emotional depth and warmth.</div></div>
+        <div class="hp v d2"><div class="hp-loc">III · India</div><div class="hp-name">Crafted in India</div><div class="hp-desc">The finest artisans of India give each bottle its physical soul. Hand-filled, batch-numbered, individually checked — India's ancient tradition of craftsmanship shapes every creation.</div></div>
+        <div class="hp v d3"><div class="hp-loc">IV · Royalty</div><div class="hp-name">Aged in Royalty</div><div class="hp-desc">The final accord is tuned against the benchmark of royal courts — where fragrance was not worn, but inhabited. Where a scent was not noticed. It was remembered.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ FOUNDER MANIFESTO ═══════ -->
+<section class="founder" id="maison">
+  <div class="fnd-inner">
+    <div class="fnd-pre v">Founder's Manifesto</div>
+    <div class="fnd-orn v d1"><span class="fnd-orn-g">◆</span></div>
+    <div class="fnd-quote v d2">"I did not create Nocternum to sell fragrance. I created it to give men an identity they could wear — and a reason to carry themselves differently."</div>
+    <div class="fnd-orn v d3"><span class="fnd-orn-g">◆</span></div>
+    <p class="fnd-body v d3">In a world where every perfume brand shouts, I wanted to build something that whispered. Something that rewarded those who sought it before those who stumbled upon it. The maison was not built to be found easily — and this will never change.</p>
+    <p class="fnd-body v d4">Three fragrances. Three chapters of the day. One complete identity. This is not a perfume brand. This is a fragrance wardrobe — built for men who understand that the most powerful statement a man can make is the one he chooses to wear in silence.</p>
+    <div class="fnd-orn v"><span class="fnd-orn-g">◆</span></div>
+    <div class="fnd-sig v">Harsh</div>
+    <div class="fnd-role v">Founder · Maison Nocternum · Paris · Est. 2012</div>
+  </div>
+</section>
+
+<!-- ═══════ COLLECTOR WHISPERS ═══════ -->
+<section class="whispers">
+  <div class="whis-inner">
+    <div class="whis-header">
+      <div class="sec-pre v">From the Collector Circle</div>
+      <h2 class="sec-title v d1">Private Testimonials</h2>
+    </div>
+    <div class="whis-grid">
+      <div class="wc v">
+        <div class="wc-mark">"</div>
+        <div class="wc-quote">Nocternum is the only fragrance I have worn where strangers pause — not to compliment, but to enquire. There is a stillness to it that I have not found anywhere else, at any price.</div>
+        <div class="wc-who">Arjun M. · Delhi</div>
+        <div class="wc-frag">Nocternum EDP · Batch 009</div>
+      </div>
+      <div class="wc v d1">
+        <div class="wc-mark">"</div>
+        <div class="wc-quote">I have worn Creed, Tom Ford, and Maison Margiela for fifteen years. Nocternum Rouge holds its own among them with a quiet confidence that the European houses charge five times the price for.</div>
+        <div class="wc-who">Rohan K. · Mumbai</div>
+        <div class="wc-frag">Nocternum Rouge EDP · Batch 012</div>
+      </div>
+      <div class="wc v d2">
+        <div class="wc-mark">"</div>
+        <div class="wc-quote">Solar Punch has become my professional signature. Clean, precise, and intelligent — the fragrance receives more comments in meetings than anything I have worn before. That is the measure of it.</div>
+        <div class="wc-who">Vikram S. · Bangalore</div>
+        <div class="wc-frag">Solar Punch EDP · Batch 015</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ SELECTION SALON ═══════ -->
+<div class="overlay" id="overlay" onclick="closeSalon()"></div>
+<div class="salon" id="salon">
+  <div class="salon-head">
+    <div>
+      <div class="sh-title">Private Selection</div>
+      <div class="sh-sub">Your reserved bottles · Maison Nocternum</div>
+    </div>
+    <button class="salon-x" onclick="closeSalon()">✕ Close</button>
+  </div>
+  <div class="salon-body" id="salonBody">
+    <div class="salon-empty">"Your selection is empty.<br>Enter an identity above."</div>
+  </div>
+  <div id="salonFoot" style="display:none">
+    <div class="salon-foot">
+      <div class="sf-row"><span>Subtotal</span><span id="sfSub">₹0</span></div>
+      <div class="sf-row"><span>Shipping</span><span>Complimentary</span></div>
+      <div class="sf-total">
+        <span class="sf-t-lbl">Total</span>
+        <span class="sf-t-val" id="sfTotal">₹0</span>
+      </div>
+      <div class="sf-promise">
+        <span class="sf-pi">Secure luxury packaging</span>
+        <span class="sf-pi">Insured private delivery</span>
+        <span class="sf-pi">Maison authenticity seal</span>
+        <span class="sf-pi">Free returns — 30 days</span>
+      </div>
+      <button class="btn-proceed" onclick="openCeremony()">Proceed to Reservation →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ CEREMONY MODAL ═══════ -->
+<div class="ceremony-veil" id="ceremonyVeil">
+  <div class="ceremony">
+    <div class="cer-head">
+      <div>
+        <div class="cer-brand">Nocternum</div>
+        <div class="cer-brand-sub">Private Acquisition · Secure · Maison Nocternum · Paris</div>
+      </div>
+      <button class="cer-x" onclick="closeCeremony()">✕ Close</button>
+    </div>
+    <div class="step-bar">
+      <div class="stab on" id="stab1">I · Identity</div>
+      <div class="stab" id="stab2">II · Address</div>
+      <div class="stab" id="stab3">III · Settlement</div>
+      <div class="stab" id="stab4">IV · Review</div>
+    </div>
+    <div class="cer-layout">
+      <div class="cer-form">
+
+        <!-- STEP 1 -->
+        <div class="step on" id="sp1">
+          <div class="frow">
+            <div class="fg"><label class="flbl">First Name</label><input class="finp" id="fFirst" placeholder="Your first name"/></div>
+            <div class="fg"><label class="flbl">Last Name</label><input class="finp" id="fLast" placeholder="Your last name"/></div>
+          </div>
+          <div class="frow one"><div class="fg"><label class="flbl">Email Address</label><input class="finp" id="fEmail" type="email" placeholder="you@example.com"/></div></div>
+          <div class="frow one"><div class="fg"><label class="flbl">Phone Number</label><input class="finp" id="fPhone" placeholder="+91 98765 43210"/></div></div>
+        </div>
+
+        <!-- STEP 2 -->
+        <div class="step" id="sp2">
+          <div class="frow one"><div class="fg"><label class="flbl">House / Flat Number</label><input class="finp" id="fHouse" placeholder="e.g. Flat 4B, Tower 2, Building Name"/></div></div>
+          <div class="frow one"><div class="fg"><label class="flbl">Street Name</label><input class="finp" id="fStreet" placeholder="Street or Road name"/></div></div>
+          <div class="frow one"><div class="fg"><label class="flbl">Area / Colony</label><input class="finp" id="fArea" placeholder="Area, Colony or Locality"/></div></div>
+          <div class="frow one"><div class="fg"><label class="flbl">Landmark (Required)</label><input class="finp" id="fLandmark" placeholder="Near — e.g. Metro Station, Hospital, Mall"/></div></div>
+          <div class="frow tri">
+            <div class="fg"><label class="flbl">City</label><input class="finp" id="fCity" placeholder="City"/></div>
+            <div class="fg"><label class="flbl">State</label>
+              <select class="finp" id="fState">
+                <option value="">Select State</option>
+                <option>Andhra Pradesh</option><option>Arunachal Pradesh</option><option>Assam</option>
+                <option>Bihar</option><option>Chhattisgarh</option><option>Delhi</option>
+                <option>Goa</option><option>Gujarat</option><option>Haryana</option>
+                <option>Himachal Pradesh</option><option>Jharkhand</option><option>Karnataka</option>
+                <option>Kerala</option><option>Madhya Pradesh</option><option>Maharashtra</option>
+                <option>Manipur</option><option>Meghalaya</option><option>Mizoram</option>
+                <option>Nagaland</option><option>Odisha</option><option>Punjab</option>
+                <option>Rajasthan</option><option>Sikkim</option>
+                <option selected>Telangana</option><option>Tamil Nadu</option>
+                <option>Tripura</option><option>Uttar Pradesh</option>
+                <option>Uttarakhand</option><option>West Bengal</option>
+              </select>
+            </div>
+            <div class="fg"><label class="flbl">Pincode</label><input class="finp" id="fPin" placeholder="500001" maxlength="6"/></div>
+          </div>
+        </div>
+
+        <!-- STEP 3 -->
+        <div class="step" id="sp3">
+          <div class="pay-opts">
+            <label class="popt sel" onclick="selPay('card',this)"><input type="radio" name="pay" checked/><span class="pico">💳</span><div><div class="plbl">Credit / Debit Card</div><div class="psub">Visa · Mastercard · Rupay · Amex</div></div></label>
+            <label class="popt" onclick="selPay('upi',this)"><input type="radio" name="pay"/><span class="pico">📱</span><div><div class="plbl">UPI</div><div class="psub">PhonePe · GPay · Paytm · BHIM</div></div></label>
+            <label class="popt" onclick="selPay('netbanking',this)"><input type="radio" name="pay"/><span class="pico">🏦</span><div><div class="plbl">Net Banking</div><div class="psub">All major Indian banks</div></div></label>
+            <label class="popt" onclick="selPay('wallet',this)"><input type="radio" name="pay"/><span class="pico">👛</span><div><div class="plbl">Digital Wallet</div><div class="psub">Paytm · Amazon Pay · Mobikwik</div></div></label>
+            <label class="popt" onclick="selPay('cod',this)"><input type="radio" name="pay"/><span class="pico">💵</span><div><div class="plbl">Cash on Delivery</div><div class="psub">Payment upon arrival · +₹49</div></div></label>
+          </div>
+          <div class="pdet on" id="pd-card">
+            <div class="frow one"><div class="fg"><label class="flbl">Card Number</label><input class="finp" id="cardNum" placeholder="1234 5678 9012 3456" maxlength="19" oninput="fmtCard(this)"/></div></div>
+            <div class="frow"><div class="fg"><label class="flbl">Expiry</label><input class="finp" id="cardExp" placeholder="MM / YY" maxlength="7" oninput="fmtExp(this)"/></div><div class="fg"><label class="flbl">CVV</label><input class="finp" id="cardCvv" placeholder="•••" maxlength="4" type="password"/></div></div>
+            <div class="frow one"><div class="fg"><label class="flbl">Name on Card</label><input class="finp" id="cardName" placeholder="YOUR FULL NAME"/></div></div>
+          </div>
+          <div class="pdet" id="pd-upi">
+            <div class="uapps"><button class="ua" onclick="pickUpi(this)">PhonePe</button><button class="ua" onclick="pickUpi(this)">GPay</button><button class="ua" onclick="pickUpi(this)">Paytm</button><button class="ua" onclick="pickUpi(this)">BHIM</button><button class="ua" onclick="pickUpi(this)">Other</button></div>
+            <div class="frow one"><div class="fg"><label class="flbl">UPI ID</label><input class="finp" placeholder="yourname@upi"/></div></div>
+          </div>
+          <div class="pdet" id="pd-netbanking">
+            <div class="frow one"><div class="fg"><label class="flbl">Select Your Bank</label><select class="finp"><option value="">Choose Bank</option><option>State Bank of India</option><option>HDFC Bank</option><option>ICICI Bank</option><option>Axis Bank</option><option>Kotak Mahindra Bank</option><option>Punjab National Bank</option><option>Bank of Baroda</option><option>Canara Bank</option><option>Union Bank of India</option><option>IDFC FIRST Bank</option></select></div></div>
+          </div>
+          <div class="pdet" id="pd-wallet">
+            <div class="uapps"><button class="ua" onclick="pickUpi(this)">Paytm</button><button class="ua" onclick="pickUpi(this)">Amazon Pay</button><button class="ua" onclick="pickUpi(this)">Mobikwik</button><button class="ua" onclick="pickUpi(this)">Ola Money</button></div>
+          </div>
+          <div class="pdet" id="pd-cod"><p class="cod-note">Pay in cash upon delivery of your order. A convenience charge of ₹49 applies for this settlement method.</p></div>
+        </div>
+
+        <!-- STEP 4 — REVIEW -->
+        <div class="step" id="sp4"><div id="revContent"></div></div>
+
+        <!-- STEP 5 — RESERVATION CONFIRMATION -->
+        <div class="step" id="sp5">
+          <div class="confirm-ceremony">
+            <div class="confirm-seal">◆</div>
+            <div class="confirm-title">Reserved</div>
+            <div class="confirm-sub">Your bottle has been reserved by the Maison</div>
+            <div class="confirm-ref" id="confRef">Reservation #NCT-000000</div>
+            <div class="confirm-stages">
+              <div class="cs-stage active">Reservation confirmed · The Maison has been notified</div>
+              <div class="cs-stage">Bottle being prepared and packaged by hand</div>
+              <div class="cs-stage">Quality verification by the Maison</div>
+              <div class="cs-stage">Private dispatch to your address within 3–5 days</div>
+            </div>
+            <div class="confirm-det" id="confDet"></div>
+            <button class="btn-reserve" onclick="closeCeremony();closeSalon();" style="margin:0 auto;display:inline-block;">Return to the Maison</button>
+          </div>
+        </div>
+
+        <div class="step-nav" id="stepNav">
+          <button class="btn-back" id="btnBack" onclick="prevStep()" style="visibility:hidden">← Return</button>
+          <button class="btn-next" id="btnNext" onclick="nextStep()">Continue →</button>
+        </div>
+      </div>
+
+      <!-- ORDER SUMMARY -->
+      <div class="cer-sum">
+        <div class="cs-title">Your Reservation</div>
+        <div class="cs-items" id="csItems"></div>
+        <hr class="cs-div"/>
+        <div class="promo-row">
+          <input class="finp promo-inp" id="promoInp" placeholder="Promo code"/>
+          <button class="promo-btn" onclick="applyPromo()">Apply</button>
+        </div>
+        <div class="pm ok" id="pmOk">✓ NOCTERNUM10 — 10% applied</div>
+        <div class="pm err" id="pmErr">Invalid code · Try NOCTERNUM10</div>
+        <hr class="cs-div"/>
+        <div class="cs-line"><span>Subtotal</span><span id="csSub">₹0</span></div>
+        <div class="cs-line"><span>Shipping</span><span>Complimentary</span></div>
+        <div class="cs-line" id="discLine" style="display:none;color:#7ebd7e"><span>Discount (10%)</span><span id="discVal">−₹0</span></div>
+        <div class="cs-line total"><span>Total</span><span id="csTotal">₹0</span></div>
+        <div class="cs-trust">✦ Luxury packaging included<br>✦ Insured express delivery<br>✦ Maison authenticity seal<br>✦ Free returns within 30 days<br>✦ Each bottle individually numbered</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- ═══════ CONTACT ═══════ -->
+<section class="contact" id="contact">
+  <div class="ct-inner">
+    <div class="ct-header">
+      <div class="sec-pre v">Private Orders &amp; Enquiries</div>
+      <h2 class="sec-title v d1">Speak to<br>the Maison</h2>
+    </div>
+    <div class="ct-grid">
+      <div class="cc v">
+        <div class="cc-role">Founder &amp; Owner</div>
+        <div class="cc-name">VG Harsh</div>
+        <div class="cc-rule"></div>
+        <div class="cc-lbl">Direct Line</div>
+        <a href="tel:+919969208527" class="cc-tel">+91 99692 08527</a>
+      </div>
+      <div class="cc v d1">
+        <div class="cc-role">Co-Owner</div>
+        <div class="cc-name">Nidhish Gupta</div>
+        <div class="cc-rule"></div>
+        <div class="cc-lbl">Direct Line</div>
+        <a href="tel:+917569897846" class="cc-tel">+91 75698 97846</a>
+      </div>
+    </div>
+    <div class="ct-email v">
+      <div class="ct-email-lbl">Write to the Maison</div>
+      <a href="mailto:guptanidhish19@gmail.com" class="ct-email-link">guptanidhish19@gmail.com</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ FOOTER ═══════ -->
+<footer>
+  <div class="ft-brand">
+    <span class="ft-brand-name">Nocternum</span>
+    <span class="ft-brand-sub">Private Fragrance Maison · Paris · Est. 2012</span>
+    <div class="ft-stamp">Designed in Paris · Inspired from Italy<br>Crafted in India · Aged in Royalty</div>
+  </div>
+  <div class="ft-ct">
+    <div class="ft-ct-title">The Maison</div>
+    <div class="ft-ct-row"><span class="ft-ct-role">Owner</span><span class="ft-ct-name">VG Harsh</span><a href="tel:+919969208527" class="ft-ct-tel">+91 99692 08527</a></div>
+    <div class="ft-ct-row"><span class="ft-ct-role">Co-Owner</span><span class="ft-ct-name">Nidhish Gupta</span><a href="tel:+917569897846" class="ft-ct-tel">+91 75698 97846</a></div>
+    <div class="ft-domain">www.nocternum.com</div>
+  </div>
+  <div class="ft-right">
+    <div class="ft-legal">© 2026 Nocternum. All rights reserved.</div>
+    <div class="ft-links">
+      <a href="#legend">The Maison</a>
+      <a href="#wardrobe">Collections</a>
+      <a href="#contact">Private Orders</a>
+      <a href="mailto:guptanidhish19@gmail.com">Press</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ══════════════════════════════════
+   NOCTERNUM · THE ELEVATION · JS
+══════════════════════════════════ */
+const PRICES={1:{50:1000,100:2000,200:4000},2:{50:1000,100:2000,200:4000},3:{50:1000,100:2000,200:4000}};
+const NAMES={1:'Nocternum EDP',2:'Nocternum Rouge EDP',3:'Solar Punch EDP'};
+const BATCHES={1:'009',2:'012',3:'015'};
+const SVGS={
+  1:`<svg viewBox="0 0 100 220" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="s1" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#09091e"/><stop offset="40%" stop-color="#1c1c42"/><stop offset="100%" stop-color="#09091e"/></linearGradient><linearGradient id="g1" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#6a5030"/><stop offset="50%" stop-color="#c5a35e"/><stop offset="100%" stop-color="#6a5030"/></linearGradient></defs><rect x="15" y="39" width="70" height="170" rx="5" fill="url(#s1)"/><rect x="22" y="82" width="56" height="100" rx="1" fill="rgba(10,8,28,.92)"/><rect x="22" y="82" width="56" height="100" rx="1" fill="none" stroke="rgba(197,163,94,0.22)" stroke-width=".5"/><text x="50" y="126" text-anchor="middle" font-family="Cormorant,serif" font-weight="600" font-size="10.5" fill="#ebe0c8" letter-spacing="1.5">NOCTERNUM</text><rect x="15" y="200" width="70" height="3" rx="1" fill="url(#g1)" opacity=".42"/></svg>`,
+  2:`<svg viewBox="0 0 100 220" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="s2" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#1a0606"/><stop offset="40%" stop-color="#3c0e0e"/><stop offset="100%" stop-color="#1a0606"/></linearGradient><linearGradient id="g2" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#6a5030"/><stop offset="50%" stop-color="#c5a35e"/><stop offset="100%" stop-color="#6a5030"/></linearGradient></defs><rect x="15" y="39" width="70" height="170" rx="5" fill="url(#s2)"/><rect x="22" y="82" width="56" height="100" rx="1" fill="rgba(24,6,6,.92)"/><rect x="22" y="82" width="56" height="100" rx="1" fill="none" stroke="rgba(197,163,94,0.22)" stroke-width=".5"/><text x="50" y="120" text-anchor="middle" font-family="Cormorant,serif" font-weight="600" font-size="10" fill="#ebe0c8" letter-spacing="1">NOCTERNUM</text><text x="50" y="138" text-anchor="middle" font-family="Cormorant,serif" font-style="italic" font-weight="500" font-size="12" fill="rgba(205,75,55,0.82)">Rouge</text><rect x="15" y="200" width="70" height="3" rx="1" fill="url(#g2)" opacity=".42"/></svg>`,
+  3:`<svg viewBox="0 0 100 220" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="s3" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#0c0e06"/><stop offset="40%" stop-color="#202408"/><stop offset="100%" stop-color="#0c0e06"/></linearGradient><linearGradient id="g3" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#6a5030"/><stop offset="50%" stop-color="#c5a35e"/><stop offset="100%" stop-color="#6a5030"/></linearGradient></defs><rect x="15" y="39" width="70" height="170" rx="5" fill="url(#s3)"/><rect x="22" y="82" width="56" height="100" rx="1" fill="rgba(12,14,4,.92)"/><rect x="22" y="82" width="56" height="100" rx="1" fill="none" stroke="rgba(197,163,94,0.22)" stroke-width=".5"/><text x="50" y="122" text-anchor="middle" font-family="Cormorant,serif" font-weight="600" font-size="10.5" fill="#ebe0c8" letter-spacing="1">SOLAR</text><text x="50" y="142" text-anchor="middle" font-family="Cormorant,serif" font-weight="600" font-size="10.5" fill="#ebe0c8" letter-spacing="1">PUNCH</text><rect x="15" y="200" width="70" height="3" rx="1" fill="url(#g3)" opacity=".42"/></svg>`
+};
+let cart=[],selSz={1:'50ml',2:'50ml',3:'50ml'},promoOn=false,step=1,payM='card';
+const inr=n=>'₹'+n.toLocaleString('en-IN');
+const g=id=>document.getElementById(id)?.value||'';
+
+/* ── CURTAIN ── */
+window.addEventListener('load',()=>setTimeout(()=>document.getElementById('curtain').classList.add('gone'),2600));
+
+/* ── SCROLL REVEAL ── */
+const revObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');revObs.unobserve(e.target);}});
+},{threshold:.1,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.v').forEach(el=>revObs.observe(el));
+
+/* ── NAV / TOPBAR ── */
+window.addEventListener('scroll',()=>{
+  const s=scrollY>80;
+  document.getElementById('nav').classList.toggle('scrolled',s);
+  document.getElementById('topbar').classList.toggle('dim',s);
+});
+
+/* ── SIZES ── */
+function pickSz(pid,sz,btn){
+  selSz[pid]=sz;
+  document.getElementById('pr'+pid).innerHTML=inr(PRICES[pid][parseInt(sz)])+'<small>Eau de Parfum · '+sz+'</small>';
+  document.querySelectorAll('#sz'+pid+' .sz').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+}
+
+/* ── CART ── */
+const sub=()=>cart.reduce((s,x)=>s+x.price*x.qty,0);
+
+function addToCart(pid,btn){
+  const sz=selSz[pid],price=PRICES[pid][parseInt(sz)];
+  const ex=cart.find(x=>x.pid===pid&&x.sz===sz);
+  if(ex)ex.qty++;else cart.push({pid,name:NAMES[pid],sz,price,qty:1,svg:SVGS[pid],batch:BATCHES[pid]});
+  btn.textContent='✓ Reserved';btn.classList.add('reserved');
+  setTimeout(()=>{btn.textContent='Reserve this Bottle';btn.classList.remove('reserved');},2800);
+  toast(NAMES[pid]+' · Batch '+BATCHES[pid]+' reserved');
+  refreshCart();
+}
+
+function refreshCart(){
+  const n=cart.reduce((s,x)=>s+x.qty,0);
+  const b=document.getElementById('selBadge');
+  b.textContent=n;b.classList.toggle('show',n>0);
+  const s=sub();
+  document.getElementById('sfSub').textContent=inr(s);
+  document.getElementById('sfTotal').textContent=inr(s);
+  document.getElementById('salonFoot').style.display=cart.length?'block':'none';
+  document.getElementById('salonBody').innerHTML=cart.length
+    ?cart.map((x,i)=>`<div class="si">
+        <div class="si-thumb">${x.svg}</div>
+        <div class="si-info">
+          <div class="si-name">${x.name}</div>
+          <div class="si-meta">${x.sz} · EDP · Batch ${x.batch}</div>
+          <div class="si-qty">
+            <button class="qb" onclick="chQ(${i},-1)">−</button>
+            <span class="qn">${x.qty}</span>
+            <button class="qb" onclick="chQ(${i},1)">+</button>
+          </div>
+          <button class="si-rm" onclick="rmItem(${i})">Remove</button>
+        </div>
+        <div class="si-price">${inr(x.price*x.qty)}</div>
+      </div>`).join('')
+    :'<div class="salon-empty">"Your selection is empty.<br>Enter an identity above."</div>';
+  refreshSum();
+}
+
+function chQ(i,d){cart[i].qty+=d;if(cart[i].qty<=0)cart.splice(i,1);refreshCart();}
+function rmItem(i){cart.splice(i,1);refreshCart();}
+function openSalon(){document.getElementById('salon').classList.add('open');document.getElementById('overlay').classList.add('on');}
+function closeSalon(){document.getElementById('salon').classList.remove('open');document.getElementById('overlay').classList.remove('on');}
+
+function toast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg+' ◆';t.classList.add('on');
+  clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove('on'),4000);
+}
+
+/* ── CEREMONY ── */
+function openCeremony(){
+  closeSalon();step=1;promoOn=false;
+  ['pmOk','pmErr'].forEach(id=>document.getElementById(id).classList.remove('on'));
+  document.getElementById('discLine').style.display='none';
+  document.getElementById('ceremonyVeil').classList.add('on');
+  renderStep();refreshSum();
+}
+function closeCeremony(){document.getElementById('ceremonyVeil').classList.remove('on');}
+
+function renderStep(){
+  [1,2,3,4,5].forEach(n=>{
+    document.getElementById('sp'+n)?.classList.toggle('on',n===step);
+    const t=document.getElementById('stab'+n);
+    if(t){t.classList.toggle('on',n===step);t.classList.toggle('done',n<step);}
+  });
+  const nav=document.getElementById('stepNav');
+  if(step===5){nav.style.display='none';return;}
+  nav.style.display='flex';
+  document.getElementById('btnBack').style.visibility=step>1?'visible':'hidden';
+  const labels={1:'Continue →',2:'Continue →',3:'Continue →',4:'Confirm Reservation →'};
+  document.getElementById('btnNext').textContent=labels[step]||'Continue →';
+  if(step===4)buildReview();
+}
+function nextStep(){
+  if(step===1&&!validateId())return;
+  if(step===2&&!validateAddr())return;
+  if(step===4){placeOrder();return;}
+  step++;renderStep();
+}
+function prevStep(){if(step>1){step--;renderStep();}}
+
+function validateId(){
+  const fields=[{id:'fFirst',l:'First Name'},{id:'fLast',l:'Last Name'},{id:'fEmail',l:'Email'},{id:'fPhone',l:'Phone'}];
+  for(const f of fields){const el=document.getElementById(f.id);if(!el.value.trim()){el.focus();toast('Please complete: '+f.l);return false;}}
+  return true;
+}
+function validateAddr(){
+  const fields=[{id:'fHouse',l:'House / Flat'},{id:'fStreet',l:'Street Name'},{id:'fArea',l:'Area / Colony'},{id:'fLandmark',l:'Landmark'},{id:'fCity',l:'City'},{id:'fPin',l:'Pincode'}];
+  for(const f of fields){const el=document.getElementById(f.id);if(!el.value.trim()){el.focus();toast('Please complete: '+f.l);return false;}}
+  return true;
+}
+function selPay(type,lbl){
+  payM=type;
+  document.querySelectorAll('.popt').forEach(el=>el.classList.remove('sel'));lbl.classList.add('sel');
+  document.querySelectorAll('.pdet').forEach(el=>el.classList.remove('on'));
+  const p=document.getElementById('pd-'+type);if(p)p.classList.add('on');
+}
+function pickUpi(btn){btn.closest('.uapps').querySelectorAll('.ua').forEach(b=>b.classList.remove('on'));btn.classList.add('on');}
+function fmtCard(el){let v=el.value.replace(/\D/g,'').substring(0,16);el.value=v.replace(/(.{4})/g,'$1 ').trim();}
+function fmtExp(el){let v=el.value.replace(/\D/g,'').substring(0,4);if(v.length>=2)v=v.slice(0,2)+' / '+v.slice(2);el.value=v;}
+
+function applyPromo(){
+  const code=document.getElementById('promoInp').value.trim().toUpperCase();
+  ['pmOk','pmErr'].forEach(id=>document.getElementById(id).classList.remove('on'));
+  if(code==='NOCTERNUM10'){promoOn=true;document.getElementById('pmOk').classList.add('on');document.getElementById('discLine').style.display='flex';refreshSum();}
+  else document.getElementById('pmErr').classList.add('on');
+}
+
+function refreshSum(){
+  const s=sub(),disc=promoOn?Math.round(s*.1):0,total=s-disc;
+  document.getElementById('csSub').textContent=inr(s);
+  document.getElementById('csTotal').textContent=inr(total);
+  if(promoOn)document.getElementById('discVal').textContent='−'+inr(disc);
+  const si=document.getElementById('csItems');
+  if(si)si.innerHTML=cart.map(x=>`<div class="cs-item"><span class="cs-n">${x.name} ${x.sz} ×${x.qty}</span><span class="cs-p">${inr(x.price*x.qty)}</span></div>`).join('');
+}
+
+function buildReview(){
+  const pl={card:'Credit / Debit Card',upi:'UPI',netbanking:'Net Banking',wallet:'Digital Wallet',cod:'Cash on Delivery (+₹49)'};
+  const s=sub(),disc=promoOn?Math.round(s*.1):0,cod=payM==='cod'?49:0,total=s-disc+cod;
+  document.getElementById('revContent').innerHTML=`
+    <div class="rv-block"><div class="rv-lbl">Client Identity</div><div class="rv-val">${g('fFirst')} ${g('fLast')}<br>${g('fEmail')}<br>${g('fPhone')}</div></div>
+    <div class="rv-block"><div class="rv-lbl">Delivery Address</div><div class="rv-val">${g('fHouse')}, ${g('fStreet')}<br>${g('fArea')}<br>Near ${g('fLandmark')}<br>${g('fCity')}, ${g('fState')} — ${g('fPin')}</div></div>
+    <div class="rv-block"><div class="rv-lbl">Settlement</div><div class="rv-val">${pl[payM]}</div></div>
+    <div class="rv-block"><div class="rv-lbl">Reservation</div>
+      ${cart.map(x=>`<div class="rv-item"><span>${x.name} · ${x.sz} · Batch ${x.batch} ×${x.qty}</span><span class="rv-p">${inr(x.price*x.qty)}</span></div>`).join('')}
+      <div class="rv-grand"><span>Total</span><span>${inr(total)}</span></div>
+    </div>`;
+}
+
+/* ══════════════════════════════════════════════════
+   GMAIL ORDER NOTIFICATION — RELIABLE WITH RETRY
+══════════════════════════════════════════════════ */
+async function sendOrderEmail(d,retries=3){
+  const itemLines=d.items.map(x=>`  • ${x.name} | ${x.sz} | Batch No.${x.batch} | Qty: ${x.qty} | ${inr(x.price*x.qty)}`).join('\n');
+  const allItems=d.items.map(x=>x.name+' ('+x.sz+', Batch '+x.batch+', qty '+x.qty+')').join(', ');
+  const now=new Date();
+  const ts=now.toLocaleDateString('en-IN',{weekday:'long',day:'2-digit',month:'long',year:'numeric'})+' at '+now.toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit',hour12:true});
+
+  const emailBody=`
+╔══════════════════════════════════════════════╗
+       NEW RESERVATION — MAISON NOCTERNUM
+╚══════════════════════════════════════════════╝
+
+Reservation ID  : ${d.ref}
+Date & Time     : ${ts}
+
+══════════════════════════════════════════════
+  CLIENT IDENTITY
+══════════════════════════════════════════════
+Full Name       : ${d.first} ${d.last}
+Email Address   : ${d.email}
+Phone Number    : ${d.phone}
+
+══════════════════════════════════════════════
+  COMPLETE DELIVERY ADDRESS
+══════════════════════════════════════════════
+House / Flat    : ${d.house}
+Street          : ${d.street}
+Area / Colony   : ${d.area}
+Landmark        : Near ${d.landmark}
+City            : ${d.city}
+State           : ${d.state}
+Pincode         : ${d.pin}
+
+══════════════════════════════════════════════
+  FRAGRANCES RESERVED
+══════════════════════════════════════════════
+${itemLines}
+
+══════════════════════════════════════════════
+  SETTLEMENT
+══════════════════════════════════════════════
+Payment Method  : ${d.payLabel}
+Total Amount    : ${d.total}
+
+══════════════════════════════════════════════
+Quick Summary   : ${allItems}
+──────────────────────────────────────────────
+Dispatch within : 3–5 Business Days
+──────────────────────────────────────────────
+Sent automatically · Maison Nocternum · Paris
+  `.trim();
+
+  for(let attempt=1;attempt<=retries;attempt++){
+    try{
+      const resp=await fetch('https://api.anthropic.com/v1/messages',{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({
+          model:'claude-sonnet-4-20250514',
+          max_tokens:1000,
+          messages:[{
+            role:'user',
+            content:`Send an email immediately to guptanidhish19@gmail.com with these exact details:\n\nSubject: 🛍️ New Reservation — Nocternum ${d.ref} — ${allItems}\n\nBody:\n${emailBody}`
+          }],
+          mcp_servers:[{type:'url',url:'https://gmail.mcp.claude.com/mcp',name:'Gmail'}]
+        })
+      });
+      if(!resp.ok){const err=await resp.text();throw new Error(`HTTP ${resp.status}: ${err}`);}
+      const result=await resp.json();
+      console.log(`[Nocternum] Order email sent successfully on attempt ${attempt}`,result?.content?.[0]?.text?.substring(0,100));
+      return true;
+    }catch(err){
+      console.error(`[Nocternum] Email attempt ${attempt}/${retries} failed:`,err.message);
+      if(attempt<retries){
+        const delay=1500*attempt;
+        console.log(`[Nocternum] Retrying in ${delay}ms...`);
+        await new Promise(r=>setTimeout(r,delay));
+      }else{
+        console.error('[Nocternum] All email attempts exhausted. Full order data saved below for manual processing:');
+        console.error(JSON.stringify(d,null,2));
+      }
+    }
+  }
+  return false;
+}
+
+/* ── PLACE ORDER ── */
+function placeOrder(){
+  const ref='NCT-'+Math.floor(100000+Math.random()*900000);
+  const s=sub(),disc=promoOn?Math.round(s*.1):0,cod=payM==='cod'?49:0,total=s-disc+cod;
+  const payLabels={card:'Credit / Debit Card',upi:'UPI',netbanking:'Net Banking',wallet:'Digital Wallet',cod:'Cash on Delivery'};
+
+  const orderData={
+    ref,
+    first:g('fFirst'),last:g('fLast'),email:g('fEmail'),phone:g('fPhone'),
+    house:g('fHouse'),street:g('fStreet'),area:g('fArea'),landmark:g('fLandmark'),
+    city:g('fCity'),state:g('fState'),pin:g('fPin'),
+    items:cart.map(x=>({...x})),
+    payLabel:payLabels[payM],
+    total:inr(total)
+  };
+
+  /* Send email immediately with retry */
+  sendOrderEmail(orderData);
+
+  /* Confirmation */
+  document.getElementById('confRef').textContent='Reservation '+ref;
+  document.getElementById('confDet').innerHTML=`
+    <div class="cdr"><span class="cdl">Client</span><span class="cdv">${orderData.first} ${orderData.last}</span></div>
+    <div class="cdr"><span class="cdl">Contact</span><span class="cdv">${orderData.email} · ${orderData.phone}</span></div>
+    <div class="cdr"><span class="cdl">Delivery</span><span class="cdv">${orderData.house}, ${orderData.street}, ${orderData.area}, Near ${orderData.landmark}, ${orderData.city}, ${orderData.state} — ${orderData.pin}</span></div>
+    <div class="cdr"><span class="cdl">Settlement</span><span class="cdv">${payLabels[payM]}</span></div>
+    <div class="cdr"><span class="cdl">Total</span><span class="cdv">${inr(total)}</span></div>
+    <div class="cdr"><span class="cdl">Dispatch</span><span class="cdv">Within 3–5 Business Days</span></div>`;
+
+  step=5;
+  cart=[];
+  refreshCart();
+  renderStep();
+  toast('Reservation confirmed · Thank you ◆');
+}
+
+/* Init */
+refreshCart();
+</script>
+</body>
+</html>
